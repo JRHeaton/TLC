@@ -7,6 +7,7 @@
 //
 
 #import "JRLightPlaceholderTextField.h"
+#import "JRMasterController.h"
 
 @implementation JRLightPlaceholderTextField
 
@@ -20,7 +21,10 @@
 }
 
 - (void)setPlaceholder:(NSString *)placeholder {
-    [self setAttributedPlaceholder:[[NSAttributedString alloc] initWithString:placeholder attributes:@{ NSForegroundColorAttributeName : [UIColor colorWithWhite:0.9 alpha:0.4] }]];
+    if(!self.placeholderColor)
+        self.placeholderColor = [JRMasterController sharedInstance].colorTheme.disabledColor;
+
+    [self setAttributedPlaceholder:[[NSAttributedString alloc] initWithString:placeholder attributes:@{ NSForegroundColorAttributeName : self.placeholderColor }]];
 }
 
 /*

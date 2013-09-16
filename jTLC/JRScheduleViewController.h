@@ -13,6 +13,5 @@
 @interface JRScheduleViewController : UICollectionViewController
 
 PROP_STRONG TKSession *session;
-PROP_STRONG UICollectionViewFlowLayout *layout;
 
 @end

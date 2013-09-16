@@ -30,11 +30,12 @@
 		5223CDB417E6B1D400788660 /* shot.png in Resources */ = {isa = PBXBuildFile; fileRef = 5223CDA317E6B1D400788660 /* shot.png */; };
 		5223CDBB17E6B29A00788660 /* UINavigationController+StatusBar.m in Sources */ = {isa = PBXBuildFile; fileRef = 5223CDBA17E6B29A00788660 /* UINavigationController+StatusBar.m */; };
 		5223CDBE17E6B2D000788660 /* JRMasterController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5223CDBD17E6B2D000788660 /* JRMasterController.m */; };
-		5223CDC117E6B61600788660 /* UIColor+TLC.m in Sources */ = {isa = PBXBuildFile; fileRef = 5223CDC017E6B61600788660 /* UIColor+TLC.m */; };
 		5223CDCA17E6BBBD00788660 /* SVProgressHUD.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 5223CDC717E6BBBD00788660 /* SVProgressHUD.bundle */; };
 		5223CDCB17E6BBBD00788660 /* SVProgressHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = 5223CDC917E6BBBD00788660 /* SVProgressHUD.m */; };
 		5223CDD017E6CCA400788660 /* JRScheduleViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5223CDCF17E6CCA400788660 /* JRScheduleViewController.m */; };
 		523CD30417ADD6460073372B /* EventKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 523CD30317ADD6460073372B /* EventKit.framework */; };
+		524BAF6F17E76F400044BDC7 /* JRColorTheme.m in Sources */ = {isa = PBXBuildFile; fileRef = 524BAF6E17E76F400044BDC7 /* JRColorTheme.m */; };
+		524BAF7217E779310044BDC7 /* DayView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 524BAF7117E779310044BDC7 /* DayView.xib */; };
 		52E2DA1F178CEADB00CF96C5 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 52E2DA1E178CEADB00CF96C5 /* Foundation.framework */; };
 		52E2DA21178CEADB00CF96C5 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 52E2DA20178CEADB00CF96C5 /* CoreGraphics.framework */; };
 		52E2DA23178CEADB00CF96C5 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 52E2DA22178CEADB00CF96C5 /* UIKit.framework */; };
@@ -99,8 +100,6 @@
 		5223CDBA17E6B29A00788660 /* UINavigationController+StatusBar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UINavigationController+StatusBar.m"; sourceTree = "<group>"; };
 		5223CDBC17E6B2D000788660 /* JRMasterController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JRMasterController.h; sourceTree = "<group>"; };
 		5223CDBD17E6B2D000788660 /* JRMasterController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JRMasterController.m; sourceTree = "<group>"; };
-		5223CDBF17E6B61600788660 /* UIColor+TLC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIColor+TLC.h"; sourceTree = "<group>"; };
-		5223CDC017E6B61600788660 /* UIColor+TLC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIColor+TLC.m"; sourceTree = "<group>"; };
 		5223CDC417E6B99300788660 /* GJB.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GJB.h; sourceTree = "<group>"; };
 		5223CDC617E6BBBD00788660 /* SVProgressHUD-Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "SVProgressHUD-Prefix.pch"; sourceTree = "<group>"; };
 		5223CDC717E6BBBD00788660 /* SVProgressHUD.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = SVProgressHUD.bundle; sourceTree = "<group>"; };
@@ -109,6 +108,9 @@
 		5223CDCE17E6CCA400788660 /* JRScheduleViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JRScheduleViewController.h; sourceTree = "<group>"; };
 		5223CDCF17E6CCA400788660 /* JRScheduleViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JRScheduleViewController.m; sourceTree = "<group>"; };
 		523CD30317ADD6460073372B /* EventKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = EventKit.framework; path = System/Library/Frameworks/EventKit.framework; sourceTree = SDKROOT; };
+		524BAF6D17E76F400044BDC7 /* JRColorTheme.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JRColorTheme.h; sourceTree = "<group>"; };
+		524BAF6E17E76F400044BDC7 /* JRColorTheme.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JRColorTheme.m; sourceTree = "<group>"; };
+		524BAF7117E779310044BDC7 /* DayView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DayView.xib; sourceTree = "<group>"; };
 		52E2DA1B178CEADB00CF96C5 /* jTLC.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = jTLC.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		52E2DA1E178CEADB00CF96C5 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		52E2DA20178CEADB00CF96C5 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -248,8 +250,8 @@
 		5223CDB817E6B27F00788660 /* Categories */ = {
 			isa = PBXGroup;
 			children = (
-				5223CDBF17E6B61600788660 /* UIColor+TLC.h */,
-				5223CDC017E6B61600788660 /* UIColor+TLC.m */,
+				524BAF6D17E76F400044BDC7 /* JRColorTheme.h */,
+				524BAF6E17E76F400044BDC7 /* JRColorTheme.m */,
 				5223CDBA17E6B29A00788660 /* UINavigationController+StatusBar.m */,
 			);
 			name = Categories;
@@ -272,6 +274,7 @@
 			children = (
 				5223CDCE17E6CCA400788660 /* JRScheduleViewController.h */,
 				5223CDCF17E6CCA400788660 /* JRScheduleViewController.m */,
+				524BAF7117E779310044BDC7 /* DayView.xib */,
 			);
 			name = "Schedule View";
 			sourceTree = "<group>";
@@ -450,6 +453,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				524BAF7217E779310044BDC7 /* DayView.xib in Resources */,
 				5223CDAD17E6B1D400788660 /* Default@2x.png in Resources */,
 				52E2DA3A178CEADB00CF96C5 /* Images.xcassets in Resources */,
 				52E2DA29178CEADB00CF96C5 /* InfoPlist.strings in Resources */,
@@ -491,13 +495,13 @@
 				5223CDD017E6CCA400788660 /* JRScheduleViewController.m in Sources */,
 				5223CDA817E6B1D400788660 /* DRNRealTimeBlurView.m in Sources */,
 				5223CDA917E6B1D400788660 /* UIImage+BoxBlur.m in Sources */,
+				524BAF6F17E76F400044BDC7 /* JRColorTheme.m in Sources */,
 				5223CDBB17E6B29A00788660 /* UINavigationController+StatusBar.m in Sources */,
 				52E2DA68178CEB1300CF96C5 /* TKDepartment.m in Sources */,
 				52E2DA2B178CEADB00CF96C5 /* main.m in Sources */,
 				52E2DA67178CEB1300CF96C5 /* TKEmployee.m in Sources */,
 				5223CD7E17E69BBF00788660 /* JRLightPlaceholderTextField.m in Sources */,
 				52E2DA73178CEB3F00CF96C5 /* XPathQuery.m in Sources */,
-				5223CDC117E6B61600788660 /* UIColor+TLC.m in Sources */,
 				52E2DA72178CEB3F00CF96C5 /* TFHppleElement.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

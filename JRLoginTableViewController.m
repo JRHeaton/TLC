@@ -9,8 +9,9 @@
 #import "JRLoginTableViewController.h"
 #import "JRLightPlaceholderTextField.h"
 #import "JRTextCell.h"
-#import "UIColor+TLC.h"
 #import "GJB.h"
+#import "JRColorTheme.h"
+#import "JRMasterController.h"
 
 @interface JRLoginTableViewController () {
     id _target;
@@ -25,9 +26,13 @@
     
     // keep track of text fields/switches
     UITextField *idField, *passField;
+    UILabel *idLabel, *passLabel;
     UISwitch *saveSwitch;
     
     TKSession *sessionCandidate;
+    JRColorTheme *theme;
+    
+    JRMasterController *master;
 }
 
 @end
@@ -37,14 +42,64 @@
 - (id)init {
     if(self = [super initWithStyle:UITableViewStyleGrouped]) {
         _showingActivity = NO;
-        
-        spinner = [[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleWhite];
-        spinnerItem = [[UIBarButtonItem alloc] initWithCustomView:spinner];
-        rightBarItem = [[UIBarButtonItem alloc] initWithTitle:@"Go" style:UIBarButtonItemStylePlain target:self action:@selector(submit)];
-        rightBarItem.enabled = NO;
     }
     
     return self;
+}
+
+
+- (void)loadView {
+    [super loadView];
+    
+    master = [JRMasterController sharedInstance];
+    theme = master.colorTheme;
+    
+    spinner = [[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleWhite];
+    spinnerItem = [[UIBarButtonItem alloc] initWithCustomView:spinner];
+    rightBarItem = [[UIBarButtonItem alloc] initWithTitle:@"Go" style:UIBarButtonItemStylePlain target:self action:@selector(submit)];
+
+    rightBarItem.enabled = NO;
+    
+    //    self.tableView.backgroundColor = [UIColor tlcBackgroundColor];
+    self.title = @"Log In";
+    self.tableView.keyboardDismissMode = UIScrollViewKeyboardDismissModeOnDrag;
+    self.tableView.backgroundColor = theme.backgroundColor;
+    [self.tableView registerNib:[UINib nibWithNibName:@"TextCell" bundle:nil] forCellReuseIdentifier:@"Text"];
+    self.tableView.rowHeight = 64;
+    self.tableView.separatorColor = theme.tableSeparatorColor;
+    
+    saveSwitch = [UISwitch new];
+    saveSwitch.on = YES;
+    //    saveSwitch.onTintColor = [UIColor orangeColor];
+    
+    // setup colors
+    [[UISwitch appearanceWhenContainedIn:[JRTextCell class], nil] setOnTintColor:theme.accentColor];
+    [[UISwitch appearanceWhenContainedIn:[JRTextCell class], nil] setThumbTintColor:theme.labelColor];
+    [[UISwitch appearanceWhenContainedIn:[JRTextCell class], nil] setTintColor:theme.backgroundColor];
+    [[JRTextCell appearanceWhenContainedIn:self.tableView.class, nil] setBackgroundColor:theme.foregroundColor];
+    [[UITextField appearanceWhenContainedIn:[JRTextCell class], nil] setTextColor:theme.accentColor];
+    [[UITextField appearanceWhenContainedIn:[JRTextCell class], nil] setTintColor:theme.accentColor];
+    //    [[UILabel appearanceWhenContainedIn:[JRTextCell class], nil] setTextColor:[UIColor tlcLogInCellLabelColor]];
+    
+    self.navigationController.navigationBar.tintColor = theme.accentColor;
+    self.navigationController.navigationBar.barTintColor = theme.navigationBarColor;
+}
+
+- (void)viewDidLoad
+{
+    [super viewDidLoad];
+    
+    self.navigationItem.rightBarButtonItem = rightBarItem;
+}
+
+- (void)viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:animated];
+    
+    self.navigationController.navigationBar.translucent = NO;
+}
+
+- (void)viewWillDisappear:(BOOL)animated {
+    self.navigationController.navigationBar.translucent = YES;
 }
 
 - (void)submit {
@@ -77,12 +132,23 @@
     if(showingActivity != self.showingActivity) {
         switch (showingActivity) {
             case NO: {
-                NSLog(@"stuff");
                 [spinner stopAnimating];
                 self.navigationItem.rightBarButtonItem = rightBarItem;
+                rightBarItem.enabled = NO;
                 
                 idField.enabled = passField.enabled = saveSwitch.enabled = YES;
-                idField.textColor = passField.textColor = saveSwitch.onTintColor = [UIColor orangeColor];
+                idField.textColor = passField.textColor =  theme.accentColor;
+                idLabel.textColor = passLabel.textColor = theme.labelColor;
+                saveSwitch.onTintColor = theme.labelColor;
+                /*
+                 [[UISwitch appearanceWhenContainedIn:[JRTextCell class], nil] setOnTintColor:theme.accentColor];
+                 [[UISwitch appearanceWhenContainedIn:[JRTextCell class], nil] setThumbTintColor:theme.labelColor];
+                 [[UISwitch appearanceWhenContainedIn:[JRTextCell class], nil] setTintColor:theme.backgroundColor];
+                 [[JRTextCell appearanceWhenContainedIn:self.tableView.class, nil] setBackgroundColor:theme.foregroundColor];
+                 */
+                saveSwitch.onTintColor = theme.accentColor;
+                saveSwitch.tintColor = theme.backgroundColor;
+                saveSwitch.thumbTintColor = theme.labelColor;
                 
             } break;
             default: {
@@ -92,36 +158,14 @@
                 [idField resignFirstResponder];
                 [passField resignFirstResponder];
                 idField.enabled = passField.enabled = saveSwitch.enabled = NO;
-                idField.textColor = passField.textColor = saveSwitch.onTintColor = [UIColor colorWithWhite:0.5 alpha:1];
+                idLabel.textColor = passLabel.textColor = theme.disabledColor;
+                idField.textColor = passField.textColor = saveSwitch.onTintColor = theme.disabledColor;
                 
             } break;
         }
     }
     
     _showingActivity = showingActivity;
-}
-
-- (void)loadView {
-    [super loadView];
-    
-    self.tableView.backgroundColor = [UIColor tlcBackgroundColor];
-    self.title = @"Log In";
-    self.tableView.keyboardDismissMode = UIScrollViewKeyboardDismissModeOnDrag;
-    
-    saveSwitch = [UISwitch new];
-    saveSwitch.on = YES;
-    saveSwitch.onTintColor = [UIColor orangeColor];
-}
-
-- (void)viewDidLoad
-{
-    [super viewDidLoad];
-
-    [self.tableView registerNib:[UINib nibWithNibName:@"TextCell" bundle:nil] forCellReuseIdentifier:@"Text"];
-    self.tableView.rowHeight = 64;
-    self.tableView.separatorColor = [UIColor colorWithWhite:0.8 alpha:0.2];
-    
-    self.navigationItem.rightBarButtonItem = rightBarItem;
 }
 
 #pragma mark - Table view data source
@@ -161,7 +205,7 @@
     switch (indexPath.section) {
         case 0: {
             JRTextCell *cell = [self.tableView dequeueReusableCellWithIdentifier:@"Text" forIndexPath:indexPath];
-            cell.backgroundColor = [UIColor tlcNavBarTintColor];
+            cell.backgroundColor = theme.foregroundColor;
             cell.selectionStyle = UITableViewCellSelectionStyleNone;
             
             switch (indexPath.row) {
@@ -171,8 +215,12 @@
                     cell.textField.returnKeyType = UIReturnKeyNext;
                     cell.textField.delegate = self;
                     cell.textField.enablesReturnKeyAutomatically = YES;
+            
+//                    cell.textField.textColor = [UIColor tlcLogInCellTextColor];
                     
                     idField = cell.textField;
+                    idLabel = cell.label;
+                    
                 } break;
                 case 1: {
                     cell.label.text = @"Password";
@@ -183,6 +231,7 @@
                     cell.textField.delegate = self;
                     
                     passField = cell.textField;
+                    passLabel = cell.label;
                 } break;
                 case 2: {
                     cell.label.text = @"Preferred Name";
@@ -190,12 +239,14 @@
                 } break;
                 
             }
-                    
-                return cell;
+            idLabel.textColor = theme.labelColor;
+
+            return cell;
         } break;
         case 1: {
             JRTextCell *cell = [[UINib nibWithNibName:@"TextCell" bundle:nil] instantiateWithOwner:self options:nil][0];
-            cell.backgroundColor = [UIColor tlcNavBarTintColor];
+//            cell.backgroundColor = [UIColor tlcNavBarTintColor];
+            cell.backgroundColor = theme.foregroundColor;
             
             cell.label.text = @"Save Password";
             [cell.textField removeFromSuperview];
@@ -216,6 +267,16 @@
     }
     
     return nil;
+}
+
+- (BOOL)textField:(UITextField *)textField shouldChangeCharactersInRange:(NSRange)range replacementString:(NSString *)string {
+    NSString *resolvedString = [textField.text stringByReplacingCharactersInRange:range withString:string];
+    UITextField *other = textField == idField ? passField : idField;
+    
+    BOOL enableButton = other.text.length > 0 && resolvedString.length > 0;
+    self.navigationItem.rightBarButtonItem.enabled = enableButton;
+    
+    return YES;
 }
 
 - (BOOL)textFieldShouldReturn:(UITextField *)textField {

@@ -7,7 +7,10 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "GJB.h"
 
 @interface JRLightPlaceholderTextField : UITextField
+
+PROP_STRONG UIColor *placeholderColor;
 
 @end

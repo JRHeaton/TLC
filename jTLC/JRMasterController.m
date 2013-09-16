@@ -7,11 +7,10 @@
 //
 
 #import "JRMasterController.h"
-#import "UIColor+TLC.h"
 #import "TLCKit.h"
 #import "GJB.h"
 
-#define DEBUG_LOGIN_UI 1
+#define DEBUG_LOGIN_UI 0
 
 @interface JRMasterController ()
 
@@ -40,6 +39,8 @@ static JRMasterController *_sharedJRMasterController = nil;
         return _sharedJRMasterController;
     
     if(self = [super init]) {
+        self.colorTheme = [JRColorTheme darkColorThemeWithAccentColor:[UIColor colorWithRed:.14 green:.533 blue:0.934 alpha:1]];
+        
         self.rootNavigationController = [self themedNavigationController];
         logInViewController = [[JRLoginTableViewController alloc] init];
         
@@ -47,8 +48,10 @@ static JRMasterController *_sharedJRMasterController = nil;
         logInViewController.completionBlock = ^(TKSession *session) {
             _self.session = session;
             
-            [self performSelectorOnMainThread:@selector(dismissLogIn) withObject:nil waitUntilDone:NO];
+            [_self performSelectorOnMainThread:@selector(dismissLogIn) withObject:nil waitUntilDone:NO];
         };
+        
+        scheduleViewController = [[JRScheduleViewController alloc] init];
         
         defaults = [NSUserDefaults standardUserDefaults];
         
@@ -75,6 +78,7 @@ static JRMasterController *_sharedJRMasterController = nil;
 }
 
 - (void)dismissLogIn {
+    NSLog(@"%@", self.session.employee.employeeID);
     self.employeeID = self.session.employee.employeeID;
     self.password = self.session.employee.password;
     [self save];
@@ -90,18 +94,22 @@ static JRMasterController *_sharedJRMasterController = nil;
     if(self.topNavigationController) {
         [self.rootNavigationController presentViewController:self.topNavigationController animated:NO completion:nil];
     }
+    
+    [self.rootNavigationController pushViewController:scheduleViewController animated:NO];
 }
 
 - (void)save {
+    NSLog(@"%@", defaults);
     [defaults setObject:self.employeeID forKey:@"employeeID"];
     [defaults setObject:self.password forKey:@"password"];
+    [defaults synchronize];
 }
 
 #pragma mark - Private methods
 
 - (UINavigationController *)themedNavigationController {
     UINavigationController *nav = [UINavigationController new];
-    nav.navigationBar.barTintColor = [UIColor tlcNavBarTintColor];
+    nav.navigationBar.barTintColor = self.colorTheme.navigationBarColor;
     nav.navigationBar.titleTextAttributes = @{ NSForegroundColorAttributeName : [UIColor whiteColor] };
     
     return nav;
