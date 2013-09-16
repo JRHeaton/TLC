@@ -8,7 +8,14 @@
 
 #import <UIKit/UIKit.h>
 
-@interface JRAppDelegate : UIResponder <UIApplicationDelegate>
+@class JRLoginTableViewController;
+@class JRScheduleViewController;
+
+@interface JRAppDelegate : UIResponder <UIApplicationDelegate> {
+    NSString *employeeID, *pass;
+    JRScheduleViewController *scheduleController;
+    JRLoginTableViewController *loginController;
+}
 
 @property (strong, nonatomic) UIWindow *window;
 

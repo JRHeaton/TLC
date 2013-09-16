@@ -7,13 +7,48 @@
 //
 
 #import "JRAppDelegate.h"
+#import "TLCKit.h"
+#import "JRLoginTableViewController.h"
+#import "JRScheduleViewController.h"
 
 @implementation JRAppDelegate
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
-    // Override point for customization after application launch.
+    self.window = [[UIWindow alloc] initWithFrame:[UIScreen mainScreen].bounds];
+    [UIApplication sharedApplication].statusBarStyle = UIStatusBarStyleLightContent;
+    
+    self.window.backgroundColor = [UIColor clearColor];
+//    UINavigationController *nav = [[UINavigationController alloc] initWithRootViewController:  [[JRLoginViewController alloc] initWithStyle:UITableViewStyleGrouped]];
+//    nav.navigationBar.translucent = NO;
+//    nav.navigationBar.barTintColor = [UIColor colorWithWhite:0.3 alpha:1];
+////    nav.topViewController.title = @"TLC";
+//    nav.navigationBar.titleTextAttributes = @{ NSForegroundColorAttributeName : [UIColor whiteColor] };
+//    self.window.rootViewController = nav;
+    
+    UINavigationController *nav = [[UINavigationController alloc] initWithRootViewController:[[JRLoginTableViewController alloc] initWithStyle:UITableViewStyleGrouped]];
+    nav.navigationBar.translucent = NO;
+    nav.navigationBar.tintColor = [UIColor orangeColor];
+    nav.navigationBar.barTintColor = [UIColor colorWithWhite:0.3 alpha:1];
+    nav.navigationBar.titleTextAttributes = @{ NSForegroundColorAttributeName : [UIColor whiteColor] };
+    nav.topViewController.title = @"Log In";
+    self.window.rootViewController = nav;
+    
+    [self.window makeKeyAndVisible];
+    
     return YES;
+}
+
+- (void)pushScheduleViewForSession:(TKSession *)session {
+    scheduleController = [[JRScheduleViewController alloc] init];
+    scheduleController.session = session;
+    
+    UINavigationController *nav = [[UINavigationController alloc] initWithRootViewController:scheduleController];
+    nav.navigationBar.titleTextAttributes = @{ NSForegroundColorAttributeName : [UIColor whiteColor] };
+    nav.navigationBar.tintColor = [UIColor redColor];
+    nav.navigationBar.barTintColor = [UIColor colorWithWhite:0.14 alpha:1];
+    
+    [loginController presentViewController:nav animated:YES completion:nil];
 }
 							
 - (void)applicationWillResignActive:(UIApplication *)application
