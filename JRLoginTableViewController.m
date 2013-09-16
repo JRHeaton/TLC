@@ -130,11 +130,11 @@
     // animate
     
     if(showingActivity != self.showingActivity) {
+        rightBarItem.enabled = NO;
         switch (showingActivity) {
             case NO: {
                 [spinner stopAnimating];
                 self.navigationItem.rightBarButtonItem = rightBarItem;
-                rightBarItem.enabled = NO;
                 
                 idField.enabled = passField.enabled = saveSwitch.enabled = YES;
                 idField.textColor = passField.textColor =  theme.accentColor;

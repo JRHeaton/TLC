@@ -10,7 +10,7 @@
 #import "TLCKit.h"
 #import "GJB.h"
 
-#define DEBUG_LOGIN_UI 0
+#define DEBUG_LOGIN_UI 1
 
 @interface JRMasterController ()
 
@@ -40,6 +40,8 @@ static JRMasterController *_sharedJRMasterController = nil;
     
     if(self = [super init]) {
         self.colorTheme = [JRColorTheme darkColorThemeWithAccentColor:[UIColor colorWithRed:.14 green:.533 blue:0.934 alpha:1]];
+//        self.colorTheme.backgroundColor = [UIColor colorWithRed:1 green:0.3 blue:0.45 alpha:1];
+//        self.colorTheme.foregroundColor = [UIColor colorWithRed:1 green:0.4 blue:.6 alpha:1];
         
         self.rootNavigationController = [self themedNavigationController];
         logInViewController = [[JRLoginTableViewController alloc] init];
@@ -78,7 +80,7 @@ static JRMasterController *_sharedJRMasterController = nil;
 }
 
 - (void)dismissLogIn {
-    NSLog(@"%@", self.session.employee.employeeID);
+
     self.employeeID = self.session.employee.employeeID;
     self.password = self.session.employee.password;
     [self save];
@@ -99,7 +101,7 @@ static JRMasterController *_sharedJRMasterController = nil;
 }
 
 - (void)save {
-    NSLog(@"%@", defaults);
+
     [defaults setObject:self.employeeID forKey:@"employeeID"];
     [defaults setObject:self.password forKey:@"password"];
     [defaults synchronize];
