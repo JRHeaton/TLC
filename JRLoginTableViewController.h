@@ -7,13 +7,15 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "GJB.h"
+#import "TLCKit.h"
 
-@interface JRLoginTableViewController : UITableViewController {
+@interface JRLoginTableViewController : UITableViewController <UITextFieldDelegate> {
     NSString *submitTitle;
 }
 
-- (instancetype)initWithSubmitButtonTitle:(NSString *)title target:(id)target action:(SEL)action;
+@property (nonatomic, assign) BOOL showingActivity;
 
-- (void)setShowingActivity:(BOOL)showing;
+PROP_COPY void (^completionBlock)(TKSession *session);
 
 @end

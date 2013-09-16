@@ -8,6 +8,7 @@
 
 #import "TFHpple.h"
 #import "TLCKit.h"
+#import "GJB.h"
 
 @interface TKSession ()
 
@@ -55,9 +56,9 @@
     return self;
 }
 
-- (void)logIn:(TKSessionResultHandler)completionHandler {
+- (void)logIn:(TKSessionLogInResultHandler)completionHandler {
     if(self.loggedIn) {
-        completionHandler(YES);
+        completionHandler(YES, nil);
         return;
     }
     
@@ -71,9 +72,9 @@
         NSError                 *error;
     
         @try {
-            [self _sendSynchronousRequest:[NSMutableURLRequest requestWithURL:TKHomeURL] pageData:&pageData response:&response error:&error];
+            [self _sendSynchronousRequest:[NSMutableURLRequest requestWithURL:TKLoginURL] pageData:&pageData response:&response error:&error];
             if(error) {
-                completionHandler(NO);
+                completionHandler(NO, @"Couldn't reach TLC");
                 return;
             }
             pageDoc = [[TFHpple alloc] initWithHTMLData:pageData];
@@ -81,11 +82,9 @@
             TFHppleElement *e = [[pageDoc searchWithXPathQuery:@"//input[@name='url_login_token']"] objectAtIndex:0];
             token = [[e attributes] objectForKey:@"value"];
             if(![token length]) {
-                completionHandler(NO);
+                completionHandler(NO, @"Problem with TLC");
                 return;
             }
-            
-
             
             NSString *cookieHeader = response.allHeaderFields[@"Set-Cookie"];
             NSArray *cookies = [cookieHeader componentsSeparatedByString:@";"];
@@ -98,7 +97,7 @@
             }
             
             if(!sessionID) {
-                completionHandler(NO);
+                completionHandler(NO, @"Problem with TLC");
                 return;
             }
             self.sessionIDCookie = sessionID;
@@ -119,13 +118,14 @@
             if(error == nil && dd.length > 8000) {
                 self.loggedIn = YES;
                 
-                completionHandler(YES);
+                completionHandler(YES, nil);
             } else {
-                completionHandler(NO);
+                
+                completionHandler(NO, @"Error logging in");
             }
         }
         @catch (NSException *e) {
-            completionHandler(NO);
+            completionHandler(NO, @"Unknown error");
         }
     }];
 }
@@ -137,7 +137,7 @@
 
 - (void)fetchEmployeeInfo:(TKSessionResultHandler)completionHandler {
     if(!self.loggedIn) {
-        [self logIn:^(BOOL success) {
+        [self logIn:^(BOOL success, NSString *error) {
             if(!success)
                 completionHandler(NO);
             else {
@@ -208,7 +208,7 @@
 
 - (void)fetchShifts:(TKSessionResultHandler)completionHandler {
     if(!self.loggedIn) {
-        [self logIn:^(BOOL success) {
+        [self logIn:^(BOOL success, NSString *e) {
             if(!success)
                 completionHandler(NO);
             else {
@@ -258,10 +258,9 @@
 
 - (void)fetchInfoForSessionEmployeeStore:(TKSessionResultHandler)completionHandler {
     if(!self.loggedIn) {
-        [self logIn:^(BOOL success) {
+        [self logIn:^(BOOL success, NSString *e) {
             if(!success)
                 completionHandler(NO);
-        
         }];
     }
     

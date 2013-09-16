@@ -7,14 +7,10 @@
 //
 
 #import <UIKit/UIKit.h>
-
-@class JRLoginTableViewController;
-@class JRScheduleViewController;
+#import "JRMasterController.h"
 
 @interface JRAppDelegate : UIResponder <UIApplicationDelegate> {
-    NSString *employeeID, *pass;
-    JRScheduleViewController *scheduleController;
-    JRLoginTableViewController *loginController;
+    JRMasterController *master;
 }
 
 @property (strong, nonatomic) UIWindow *window;

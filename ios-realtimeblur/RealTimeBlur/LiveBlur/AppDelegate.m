@@ -1,30 +1,30 @@
 //
-//  JRAppDelegate.m
-//  jTLC
+//  AppDelegate.m
+//  LiveBlur
 //
-//  Created by John Heaton on 7/9/13.
-//  Copyright (c) 2013 John Heaton. All rights reserved.
+//  Created by Alex Usbergo on 7/3/13.
+//  Copyright (c) 2013 Alex Usbergo. All rights reserved.
 //
 
-#import "JRAppDelegate.h"
+#import "AppDelegate.h"
+#import "ListViewController.h"
+#import "DRNRealTimeBlurView.h"
 
-@implementation JRAppDelegate
+@implementation AppDelegate
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
-    self.window = [[UIWindow alloc] initWithFrame:[UIScreen mainScreen].bounds];
-    [UIApplication sharedApplication].statusBarStyle = UIStatusBarStyleLightContent;
-    
-    master = [JRMasterController sharedInstance];
+    self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
+    // Override point for customization after application launch.
 
-    self.window.rootViewController = master.rootNavigationController;
+    UINavigationController *nvc = [[UINavigationController alloc] init];
+    nvc.viewControllers = @[[[ListViewController alloc] init]];
+    self.window.rootViewController = nvc;
+    
     [self.window makeKeyAndVisible];
-
-    [master presentUI];
-    
     return YES;
 }
-							
+
 - (void)applicationWillResignActive:(UIApplication *)application
 {
     // Sent when the application is about to move from active to inactive state. This can occur for certain types of temporary interruptions (such as an incoming phone call or SMS message) or when the user quits the application and it begins the transition to the background state.

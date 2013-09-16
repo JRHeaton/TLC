@@ -9,7 +9,9 @@
 #import <Foundation/Foundation.h>
 
 @class TKEmployee;
+@class TKStore;
 typedef void (^TKSessionResultHandler)(BOOL success);
+typedef void (^TKSessionLogInResultHandler)(BOOL success, NSString *errorString);
 
 @interface TKSession : NSObject {
 @private
@@ -23,7 +25,7 @@ typedef void (^TKSessionResultHandler)(BOOL success);
 @property (nonatomic, readonly, strong) TKEmployee *employee;
 
 @property (nonatomic, readonly, getter=isLoggedIn) BOOL loggedIn;
-- (void)logIn:(TKSessionResultHandler)completionHandler;
+- (void)logIn:(TKSessionLogInResultHandler)completionHandler;
 - (void)logOut;
 @property (nonatomic, readonly, copy) NSString *sessionIDCookie;
 
