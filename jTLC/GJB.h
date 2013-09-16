@@ -15,9 +15,9 @@
 #ifdef __OBJC__
 
 #if GJB_DEBUG_PRINT
-#define Log(args...) NSLog(args)
+#define JRLog(args...) NSLog(args)
 #else
-#define Log(args...)
+#define JRLog(args...)
 #endif
 
 #define PROP_COPY @property (nonatomic, copy)

@@ -11,7 +11,7 @@
 #import "TLCKit.h"
 #import "GJB.h"
 
-#define DEBUG_LOGIN_UI 0
+#define DEBUG_LOGIN_UI 1
 
 @interface JRMasterController ()
 
@@ -61,7 +61,7 @@ static JRMasterController *_sharedJRMasterController = nil;
         self.password = [self prefForKey:@"password"];
 #endif
         
-        Log(@"employeeID: %@, pass: %@", self.employeeID, self.password);
+        JRLog(@"employeeID: %@, pass: %@", self.employeeID, self.password);
         
         if(self.employeeID && self.password) {
             self.session = [TKSession sessionForEmployee:[TKEmployee employeeWithID:self.employeeID password:self.password]];

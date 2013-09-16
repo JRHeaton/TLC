@@ -50,7 +50,7 @@
 - (void)submit {
     [self setShowingActivity:YES];
 
-    Log(@"submitting");
+    JRLog(@"submitting");
     sessionCandidate = [TKSession sessionForEmployee:[TKEmployee employeeWithID:idField.text password:passField.text]];
     [sessionCandidate logIn:^(BOOL success, NSString *errorString) {
         if(!success) {

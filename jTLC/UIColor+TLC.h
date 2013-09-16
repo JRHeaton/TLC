@@ -12,5 +12,6 @@
 
 + (UIColor *)tlcNavBarTintColor;
 + (UIColor *)tlcBackgroundColor;
++ (UIColor *)tlcBlue;
 
 @end

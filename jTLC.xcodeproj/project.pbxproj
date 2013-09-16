@@ -33,6 +33,7 @@
 		5223CDC117E6B61600788660 /* UIColor+TLC.m in Sources */ = {isa = PBXBuildFile; fileRef = 5223CDC017E6B61600788660 /* UIColor+TLC.m */; };
 		5223CDCA17E6BBBD00788660 /* SVProgressHUD.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 5223CDC717E6BBBD00788660 /* SVProgressHUD.bundle */; };
 		5223CDCB17E6BBBD00788660 /* SVProgressHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = 5223CDC917E6BBBD00788660 /* SVProgressHUD.m */; };
+		5223CDD017E6CCA400788660 /* JRScheduleViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5223CDCF17E6CCA400788660 /* JRScheduleViewController.m */; };
 		523CD30417ADD6460073372B /* EventKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 523CD30317ADD6460073372B /* EventKit.framework */; };
 		52E2DA1F178CEADB00CF96C5 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 52E2DA1E178CEADB00CF96C5 /* Foundation.framework */; };
 		52E2DA21178CEADB00CF96C5 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 52E2DA20178CEADB00CF96C5 /* CoreGraphics.framework */; };
@@ -105,6 +106,8 @@
 		5223CDC717E6BBBD00788660 /* SVProgressHUD.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = SVProgressHUD.bundle; sourceTree = "<group>"; };
 		5223CDC817E6BBBD00788660 /* SVProgressHUD.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SVProgressHUD.h; sourceTree = "<group>"; };
 		5223CDC917E6BBBD00788660 /* SVProgressHUD.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SVProgressHUD.m; sourceTree = "<group>"; };
+		5223CDCE17E6CCA400788660 /* JRScheduleViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JRScheduleViewController.h; sourceTree = "<group>"; };
+		5223CDCF17E6CCA400788660 /* JRScheduleViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JRScheduleViewController.m; sourceTree = "<group>"; };
 		523CD30317ADD6460073372B /* EventKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = EventKit.framework; path = System/Library/Frameworks/EventKit.framework; sourceTree = SDKROOT; };
 		52E2DA1B178CEADB00CF96C5 /* jTLC.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = jTLC.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		52E2DA1E178CEADB00CF96C5 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -158,7 +161,7 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		5223CD8417E6A48F00788660 /* Log In */ = {
+		5223CD8417E6A48F00788660 /* Log In View */ = {
 			isa = PBXGroup;
 			children = (
 				5223CD7717E69A9800788660 /* JRLoginTableViewController.h */,
@@ -169,7 +172,7 @@
 				5223CD7C17E69BBF00788660 /* JRLightPlaceholderTextField.h */,
 				5223CD7D17E69BBF00788660 /* JRLightPlaceholderTextField.m */,
 			);
-			name = "Log In";
+			name = "Log In View";
 			sourceTree = "<group>";
 		};
 		5223CD8517E6B1D400788660 /* ios-realtimeblur */ = {
@@ -267,8 +270,17 @@
 		5223CDCC17E6CBCF00788660 /* Schedule View */ = {
 			isa = PBXGroup;
 			children = (
+				5223CDCE17E6CCA400788660 /* JRScheduleViewController.h */,
+				5223CDCF17E6CCA400788660 /* JRScheduleViewController.m */,
 			);
 			name = "Schedule View";
+			sourceTree = "<group>";
+		};
+		5223CDCD17E6CC0B00788660 /* Shift Detail View */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = "Shift Detail View";
 			sourceTree = "<group>";
 		};
 		52E2DA12178CEADB00CF96C5 = {
@@ -310,8 +322,9 @@
 				52E2DA6A178CEB1A00CF96C5 /* TLC Framework */,
 				52E2DA74178CEB4300CF96C5 /* TFHpple */,
 				5223CDB817E6B27F00788660 /* Categories */,
+				5223CDCD17E6CC0B00788660 /* Shift Detail View */,
 				5223CDCC17E6CBCF00788660 /* Schedule View */,
-				5223CD8417E6A48F00788660 /* Log In */,
+				5223CD8417E6A48F00788660 /* Log In View */,
 				52E2DA2D178CEADB00CF96C5 /* JRAppDelegate.h */,
 				52E2DA2E178CEADB00CF96C5 /* JRAppDelegate.m */,
 				5223CDBC17E6B2D000788660 /* JRMasterController.h */,
@@ -475,6 +488,7 @@
 				5223CDCB17E6BBBD00788660 /* SVProgressHUD.m in Sources */,
 				52E2DA69178CEB1300CF96C5 /* TKStore.m in Sources */,
 				52E2DA71178CEB3F00CF96C5 /* TFHpple.m in Sources */,
+				5223CDD017E6CCA400788660 /* JRScheduleViewController.m in Sources */,
 				5223CDA817E6B1D400788660 /* DRNRealTimeBlurView.m in Sources */,
 				5223CDA917E6B1D400788660 /* UIImage+BoxBlur.m in Sources */,
 				5223CDBB17E6B29A00788660 /* UINavigationController+StatusBar.m in Sources */,
