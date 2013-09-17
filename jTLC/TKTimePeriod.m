@@ -36,9 +36,15 @@
 - (void)_calculateProperties {
     NSCalendar *calendar = [NSCalendar currentCalendar];
     
+#if TARGET_IPHONE_SIMULATOR || TARGET_OS_IPHONE
     NSDateComponents *startComps = [calendar components:NSCalendarUnitHour | NSCalendarUnitWeekday | NSCalendarUnitMinute | NSCalendarUnitDay | NSCalendarUnitMonth fromDate:self.startDate];
     NSDateComponents *endComps = [calendar components:NSCalendarUnitHour | NSCalendarUnitWeekday | NSCalendarUnitMinute | NSCalendarUnitDay fromDate:self.endDate];
     NSDateComponents *deltaComps = [calendar components:NSCalendarUnitHour | NSCalendarUnitMinute fromDate:self.startDate toDate:self.endDate options:0];
+#elif TARGET_OS_MAC
+    NSDateComponents *startComps = [calendar components:NSHourCalendarUnit | NSWeekdayCalendarUnit | NSMinuteCalendarUnit | NSDayCalendarUnit | NSMonthCalendarUnit fromDate:self.startDate];
+    NSDateComponents *endComps = [calendar components:NSHourCalendarUnit | NSWeekdayCalendarUnit | NSMinuteCalendarUnit | NSDayCalendarUnit fromDate:self.endDate];
+    NSDateComponents *deltaComps = [calendar components:NSHourCalendarUnit | NSMinuteCalendarUnit fromDate:self.startDate toDate:self.endDate options:0];
+#endif
     
     self.startTime = TKTimeCreate(startComps.hour, startComps.minute);
     self.endTime = TKTimeCreate(endComps.hour, endComps.minute);

@@ -6,7 +6,7 @@
 //  Copyright (c) 2013 John Heaton. All rights reserved.
 //
 
-#define TKHomeURL               [NSURL URLWithString:@"https://mytlc.bestbuy.com/"]
+#define TKHomeURL               [NSURL URLWithString:@"https://mytlc.bestbuy.com/etm/"]
 #define TKLoginURL              [NSURL URLWithString:@"https://mytlc.bestbuy.com/etm/login.jsp"]
 #define TKAvailabilityChangeURL [NSURL URLWithString:@"https://mytlc.bestbuy.com/etm/messaging/etmBOView.jsp?msg_id=null&busObjTyp_id=20051&folder_id=null&newOld=null&parentID=1000000442&selectedTocID=1000000303&parentID=1000000442"]
 #define TKCalendarURL           [NSURL URLWithString:@"https://mytlc.bestbuy.com/etm/time/timesheet/etmTnsMonth.jsp"]

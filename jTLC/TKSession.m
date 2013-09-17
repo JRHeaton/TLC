@@ -37,8 +37,9 @@
 @property (nonatomic, readwrite, strong) NSArray *openHoursTimePeriods;
 @end
 
-
-@implementation TKSession
+@implementation TKSession {
+    NSMutableArray *connectionArray;
+}
 
 + (TKSession *)sessionForEmployee:(TKEmployee *)employee {
     return [[self alloc] initWithEmployee:employee];
@@ -51,6 +52,8 @@
         self.sessionIDCookie = nil;
         self.employee = employee;
         self.queue = [NSOperationQueue new];
+        
+        connectionArray = [NSMutableArray array];
     }
     
     return self;
@@ -72,7 +75,7 @@
         NSError                 *error;
     
         @try {
-            [self _sendSynchronousRequest:[NSMutableURLRequest requestWithURL:TKLoginURL] pageData:&pageData response:&response error:&error];
+            [self _sendSynchronousRequest:[NSMutableURLRequest requestWithURL:TKHomeURL] pageData:&pageData response:&response error:&error];
             if(error) {
                 completionHandler(NO, @"Couldn't reach TLC");
                 return;
@@ -284,8 +287,6 @@
         return;
     }
     
-    NSLog(@"fetching bro");
-    
     [self.queue addOperationWithBlock:^{
         NSData  *pageData;
         TFHpple *pageDoc;
@@ -431,6 +432,8 @@
     if(self.sessionIDCookie)
         [request setValue:[NSString stringWithFormat:@"JSESSIONID=%@", self.sessionIDCookie] forHTTPHeaderField:@"Cookie"];
 
+//    NSURLConnection *connection = [[NSURLConnection alloc] initWithRequest:request delegate:self startImmediately:YES];
+    
     *pageData = [NSURLConnection sendSynchronousRequest:request returningResponse:response error:error];
 }
 

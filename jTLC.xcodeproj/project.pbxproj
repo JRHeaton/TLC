@@ -36,6 +36,19 @@
 		523CD30417ADD6460073372B /* EventKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 523CD30317ADD6460073372B /* EventKit.framework */; };
 		524BAF6F17E76F400044BDC7 /* JRColorTheme.m in Sources */ = {isa = PBXBuildFile; fileRef = 524BAF6E17E76F400044BDC7 /* JRColorTheme.m */; };
 		524BAF7217E779310044BDC7 /* DayView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 524BAF7117E779310044BDC7 /* DayView.xib */; };
+		52854F0517E812FC00919635 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 52E2DA1E178CEADB00CF96C5 /* Foundation.framework */; };
+		52854F0817E812FC00919635 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 52854F0717E812FC00919635 /* main.m */; };
+		52854F1117E8132B00919635 /* TKStore.m in Sources */ = {isa = PBXBuildFile; fileRef = 52E2DA61178CEB1300CF96C5 /* TKStore.m */; };
+		52854F1217E8132E00919635 /* TKDepartment.m in Sources */ = {isa = PBXBuildFile; fileRef = 52E2DA5F178CEB1300CF96C5 /* TKDepartment.m */; };
+		52854F1317E8133100919635 /* TKEmployee.m in Sources */ = {isa = PBXBuildFile; fileRef = 52E2DA5D178CEB1300CF96C5 /* TKEmployee.m */; };
+		52854F1417E8133300919635 /* TKTimePeriod.m in Sources */ = {isa = PBXBuildFile; fileRef = 52E2DA5B178CEB1300CF96C5 /* TKTimePeriod.m */; };
+		52854F1517E8133400919635 /* TKShift.m in Sources */ = {isa = PBXBuildFile; fileRef = 52E2DA59178CEB1300CF96C5 /* TKShift.m */; };
+		52854F1617E8133600919635 /* TKSession.m in Sources */ = {isa = PBXBuildFile; fileRef = 52E2DA57178CEB1300CF96C5 /* TKSession.m */; };
+		52854F1817E8147900919635 /* CoreFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 52854F1717E8147900919635 /* CoreFoundation.framework */; };
+		52854F1917E816D800919635 /* TFHpple.m in Sources */ = {isa = PBXBuildFile; fileRef = 52E2DA6C178CEB3F00CF96C5 /* TFHpple.m */; };
+		52854F1A17E816DA00919635 /* TFHppleElement.m in Sources */ = {isa = PBXBuildFile; fileRef = 52E2DA6E178CEB3F00CF96C5 /* TFHppleElement.m */; };
+		52854F1B17E816DB00919635 /* XPathQuery.m in Sources */ = {isa = PBXBuildFile; fileRef = 52E2DA70178CEB3F00CF96C5 /* XPathQuery.m */; };
+		52854F1D17E816EB00919635 /* libxml2.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 52854F1C17E816EB00919635 /* libxml2.dylib */; };
 		52E2DA1F178CEADB00CF96C5 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 52E2DA1E178CEADB00CF96C5 /* Foundation.framework */; };
 		52E2DA21178CEADB00CF96C5 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 52E2DA20178CEADB00CF96C5 /* CoreGraphics.framework */; };
 		52E2DA23178CEADB00CF96C5 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 52E2DA22178CEADB00CF96C5 /* UIKit.framework */; };
@@ -64,6 +77,18 @@
 			remoteInfo = LiveBlur;
 		};
 /* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		52854F0217E812FC00919635 /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = /usr/share/man/man1/;
+			dstSubfolderSpec = 0;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 1;
+		};
+/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		5223CD6D17E6941F00788660 /* Accelerate.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Accelerate.framework; path = System/Library/Frameworks/Accelerate.framework; sourceTree = SDKROOT; };
@@ -111,6 +136,11 @@
 		524BAF6D17E76F400044BDC7 /* JRColorTheme.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JRColorTheme.h; sourceTree = "<group>"; };
 		524BAF6E17E76F400044BDC7 /* JRColorTheme.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JRColorTheme.m; sourceTree = "<group>"; };
 		524BAF7117E779310044BDC7 /* DayView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DayView.xib; sourceTree = "<group>"; };
+		52854F0417E812FC00919635 /* TLCFrameworkTests */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = TLCFrameworkTests; sourceTree = BUILT_PRODUCTS_DIR; };
+		52854F0717E812FC00919635 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		52854F0A17E812FC00919635 /* TLCFrameworkTests-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "TLCFrameworkTests-Prefix.pch"; sourceTree = "<group>"; };
+		52854F1717E8147900919635 /* CoreFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreFoundation.framework; path = Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.8.sdk/System/Library/Frameworks/CoreFoundation.framework; sourceTree = DEVELOPER_DIR; };
+		52854F1C17E816EB00919635 /* libxml2.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libxml2.dylib; path = Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.8.sdk/usr/lib/libxml2.dylib; sourceTree = DEVELOPER_DIR; };
 		52E2DA1B178CEADB00CF96C5 /* jTLC.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = jTLC.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		52E2DA1E178CEADB00CF96C5 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		52E2DA20178CEADB00CF96C5 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -147,6 +177,16 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		52854F0117E812FC00919635 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				52854F1D17E816EB00919635 /* libxml2.dylib in Frameworks */,
+				52854F1817E8147900919635 /* CoreFoundation.framework in Frameworks */,
+				52854F0517E812FC00919635 /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		52E2DA18178CEADB00CF96C5 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -163,6 +203,38 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		521151D217E802AF0051ECEE /* Libraries */ = {
+			isa = PBXGroup;
+			children = (
+				5223CDC517E6BBBD00788660 /* SVProgressHUD */,
+				5223CD8517E6B1D400788660 /* ios-realtimeblur */,
+				52E2DA6A178CEB1A00CF96C5 /* TLC Framework */,
+				52E2DA74178CEB4300CF96C5 /* TFHpple */,
+			);
+			name = Libraries;
+			sourceTree = "<group>";
+		};
+		521151D417E802C20051ECEE /* User Interface */ = {
+			isa = PBXGroup;
+			children = (
+				5223CDCD17E6CC0B00788660 /* Shift Detail View */,
+				5223CDCC17E6CBCF00788660 /* Schedule View */,
+				5223CD8417E6A48F00788660 /* Log In View */,
+			);
+			name = "User Interface";
+			sourceTree = "<group>";
+		};
+		521151D517E802CE0051ECEE /* Controllers & Logic */ = {
+			isa = PBXGroup;
+			children = (
+				52E2DA2D178CEADB00CF96C5 /* JRAppDelegate.h */,
+				52E2DA2E178CEADB00CF96C5 /* JRAppDelegate.m */,
+				5223CDBC17E6B2D000788660 /* JRMasterController.h */,
+				5223CDBD17E6B2D000788660 /* JRMasterController.m */,
+			);
+			name = "Controllers & Logic";
+			sourceTree = "<group>";
+		};
 		5223CD8417E6A48F00788660 /* Log In View */ = {
 			isa = PBXGroup;
 			children = (
@@ -286,10 +358,28 @@
 			name = "Shift Detail View";
 			sourceTree = "<group>";
 		};
+		52854F0617E812FC00919635 /* TLCFrameworkTests */ = {
+			isa = PBXGroup;
+			children = (
+				52854F0717E812FC00919635 /* main.m */,
+				52854F0917E812FC00919635 /* Supporting Files */,
+			);
+			path = TLCFrameworkTests;
+			sourceTree = "<group>";
+		};
+		52854F0917E812FC00919635 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				52854F0A17E812FC00919635 /* TLCFrameworkTests-Prefix.pch */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
 		52E2DA12178CEADB00CF96C5 = {
 			isa = PBXGroup;
 			children = (
 				52E2DA24178CEADB00CF96C5 /* jTLC */,
+				52854F0617E812FC00919635 /* TLCFrameworkTests */,
 				52E2DA1D178CEADB00CF96C5 /* Frameworks */,
 				52E2DA1C178CEADB00CF96C5 /* Products */,
 			);
@@ -299,6 +389,7 @@
 			isa = PBXGroup;
 			children = (
 				52E2DA1B178CEADB00CF96C5 /* jTLC.app */,
+				52854F0417E812FC00919635 /* TLCFrameworkTests */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -306,6 +397,8 @@
 		52E2DA1D178CEADB00CF96C5 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				52854F1C17E816EB00919635 /* libxml2.dylib */,
+				52854F1717E8147900919635 /* CoreFoundation.framework */,
 				5223CD6D17E6941F00788660 /* Accelerate.framework */,
 				523CD30317ADD6460073372B /* EventKit.framework */,
 				52E2DA78178D058900CF96C5 /* libxml2.dylib */,
@@ -320,18 +413,10 @@
 		52E2DA24178CEADB00CF96C5 /* jTLC */ = {
 			isa = PBXGroup;
 			children = (
-				5223CDC517E6BBBD00788660 /* SVProgressHUD */,
-				5223CD8517E6B1D400788660 /* ios-realtimeblur */,
-				52E2DA6A178CEB1A00CF96C5 /* TLC Framework */,
-				52E2DA74178CEB4300CF96C5 /* TFHpple */,
+				521151D217E802AF0051ECEE /* Libraries */,
 				5223CDB817E6B27F00788660 /* Categories */,
-				5223CDCD17E6CC0B00788660 /* Shift Detail View */,
-				5223CDCC17E6CBCF00788660 /* Schedule View */,
-				5223CD8417E6A48F00788660 /* Log In View */,
-				52E2DA2D178CEADB00CF96C5 /* JRAppDelegate.h */,
-				52E2DA2E178CEADB00CF96C5 /* JRAppDelegate.m */,
-				5223CDBC17E6B2D000788660 /* JRMasterController.h */,
-				5223CDBD17E6B2D000788660 /* JRMasterController.m */,
+				521151D417E802C20051ECEE /* User Interface */,
+				521151D517E802CE0051ECEE /* Controllers & Logic */,
 				5223CDC417E6B99300788660 /* GJB.h */,
 				52E2DA39178CEADB00CF96C5 /* Images.xcassets */,
 				52E2DA25178CEADB00CF96C5 /* Supporting Files */,
@@ -387,6 +472,23 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
+		52854F0317E812FC00919635 /* TLCFrameworkTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 52854F1017E812FC00919635 /* Build configuration list for PBXNativeTarget "TLCFrameworkTests" */;
+			buildPhases = (
+				52854F0017E812FC00919635 /* Sources */,
+				52854F0117E812FC00919635 /* Frameworks */,
+				52854F0217E812FC00919635 /* CopyFiles */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = TLCFrameworkTests;
+			productName = TLCFrameworkTests;
+			productReference = 52854F0417E812FC00919635 /* TLCFrameworkTests */;
+			productType = "com.apple.product-type.tool";
+		};
 		52E2DA1A178CEADB00CF96C5 /* jTLC */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = 52E2DA50178CEADB00CF96C5 /* Build configuration list for PBXNativeTarget "jTLC" */;
@@ -443,6 +545,7 @@
 			projectRoot = "";
 			targets = (
 				52E2DA1A178CEADB00CF96C5 /* jTLC */,
+				52854F0317E812FC00919635 /* TLCFrameworkTests */,
 			);
 		};
 /* End PBXProject section */
@@ -485,6 +588,23 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		52854F0017E812FC00919635 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				52854F0817E812FC00919635 /* main.m in Sources */,
+				52854F1117E8132B00919635 /* TKStore.m in Sources */,
+				52854F1917E816D800919635 /* TFHpple.m in Sources */,
+				52854F1517E8133400919635 /* TKShift.m in Sources */,
+				52854F1617E8133600919635 /* TKSession.m in Sources */,
+				52854F1A17E816DA00919635 /* TFHppleElement.m in Sources */,
+				52854F1417E8133300919635 /* TKTimePeriod.m in Sources */,
+				52854F1B17E816DB00919635 /* XPathQuery.m in Sources */,
+				52854F1317E8133100919635 /* TKEmployee.m in Sources */,
+				52854F1217E8132E00919635 /* TKDepartment.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		52E2DA17178CEADB00CF96C5 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -537,6 +657,47 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
+		52854F0D17E812FC00919635 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "TLCFrameworkTests/TLCFrameworkTests-Prefix.pch";
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				HEADER_SEARCH_PATHS = (
+					"$(inherited)",
+					/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include,
+					/usr/include/libxml2,
+				);
+				MACOSX_DEPLOYMENT_TARGET = 10.8;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = macosx;
+			};
+			name = Debug;
+		};
+		52854F0E17E812FC00919635 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "TLCFrameworkTests/TLCFrameworkTests-Prefix.pch";
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				HEADER_SEARCH_PATHS = (
+					"$(inherited)",
+					/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include,
+					/usr/include/libxml2,
+				);
+				MACOSX_DEPLOYMENT_TARGET = 10.8;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = macosx;
+			};
+			name = Release;
+		};
 		52E2DA4E178CEADB00CF96C5 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -648,6 +809,14 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		52854F1017E812FC00919635 /* Build configuration list for PBXNativeTarget "TLCFrameworkTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				52854F0D17E812FC00919635 /* Debug */,
+				52854F0E17E812FC00919635 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
 		52E2DA16178CEADB00CF96C5 /* Build configuration list for PBXProject "jTLC" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
