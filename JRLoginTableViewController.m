@@ -12,6 +12,7 @@
 #import "GJB.h"
 #import "JRColorTheme.h"
 #import "JRMasterController.h"
+#import "JRAboutViewController.h"
 
 @interface JRLoginTableViewController () {
     id _target;
@@ -33,6 +34,10 @@
     JRColorTheme *theme;
     
     JRMasterController *master;
+    
+    // about
+    UINavigationController *aboutNavContainer;
+    JRAboutViewController *aboutViewController;
 }
 
 @end
@@ -53,6 +58,13 @@
     
     master = [JRMasterController sharedInstance];
     theme = master.colorTheme;
+    
+    aboutViewController = [[JRAboutViewController alloc] init];
+//    aboutViewController.modalTransitionStyle = UIModalTransitionStyleFlipHorizontal;
+    
+    aboutNavContainer = [master newThemedNavController];
+    aboutNavContainer.navigationBar.translucent = NO;
+    [aboutNavContainer pushViewController:aboutViewController animated:NO];
     
     spinner = [[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleWhite];
     spinnerItem = [[UIBarButtonItem alloc] initWithCustomView:spinner];
@@ -80,9 +92,6 @@
     [[UITextField appearanceWhenContainedIn:[JRTextCell class], nil] setTextColor:theme.accentColor];
     [[UITextField appearanceWhenContainedIn:[JRTextCell class], nil] setTintColor:theme.accentColor];
     //    [[UILabel appearanceWhenContainedIn:[JRTextCell class], nil] setTextColor:[UIColor tlcLogInCellLabelColor]];
-    
-    self.navigationController.navigationBar.tintColor = theme.accentColor;
-    self.navigationController.navigationBar.barTintColor = theme.navigationBarColor;
 }
 
 - (void)viewDidLoad
@@ -90,6 +99,7 @@
     [super viewDidLoad];
     
     self.navigationItem.rightBarButtonItem = rightBarItem;
+    self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"About" style:UIBarButtonItemStylePlain target:self action:@selector(presentAboutUI)];
 }
 
 - (void)viewWillAppear:(BOOL)animated {
@@ -100,6 +110,12 @@
 
 - (void)viewWillDisappear:(BOOL)animated {
     self.navigationController.navigationBar.translucent = YES;
+}
+
+- (void)presentAboutUI {
+    if(!self.showingActivity) {
+        [self presentViewController:aboutNavContainer animated:YES completion:nil];
+    }
 }
 
 - (void)submit {
@@ -209,6 +225,7 @@
             cell.selectionStyle = UITableViewCellSelectionStyleNone;
             
             switch (indexPath.row) {
+                    cell.textField.keyboardAppearance = UIKeyboardAppearanceDark;
                 case 0: {
                     cell.label.text = @"Employee ID";
                     cell.textField.placeholder = @"ex: a123456";

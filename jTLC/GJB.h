@@ -35,9 +35,7 @@
 #define MS()            { return [NSMutableString string];          }
 #define FSTR(args...)   { return [NSString stringWithFormat:args];  }
 
-#define UINav(controller) { \
-    return [[UINavigationController alloc] initWithRootViewController:(controller)]; \
-}
+#define UINav(controller) [[UINavigationController alloc] initWithRootViewController:(controller)]
 #define UIApp [UIApplication sharedApplication]
 #define defaults() { return [NSUserDefaults standardUserDefaults]; }
 

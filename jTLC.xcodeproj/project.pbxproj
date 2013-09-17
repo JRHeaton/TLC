@@ -18,10 +18,8 @@
 		5223CDBE17E6B2D000788660 /* JRMasterController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5223CDBD17E6B2D000788660 /* JRMasterController.m */; };
 		5223CDCA17E6BBBD00788660 /* SVProgressHUD.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 5223CDC717E6BBBD00788660 /* SVProgressHUD.bundle */; };
 		5223CDCB17E6BBBD00788660 /* SVProgressHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = 5223CDC917E6BBBD00788660 /* SVProgressHUD.m */; };
-		5223CDD017E6CCA400788660 /* JRScheduleViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5223CDCF17E6CCA400788660 /* JRScheduleViewController.m */; };
 		523CD30417ADD6460073372B /* EventKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 523CD30317ADD6460073372B /* EventKit.framework */; };
 		524BAF6F17E76F400044BDC7 /* JRColorTheme.m in Sources */ = {isa = PBXBuildFile; fileRef = 524BAF6E17E76F400044BDC7 /* JRColorTheme.m */; };
-		524BAF7217E779310044BDC7 /* DayView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 524BAF7117E779310044BDC7 /* DayView.xib */; };
 		52854F0517E812FC00919635 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 52E2DA1E178CEADB00CF96C5 /* Foundation.framework */; };
 		52854F0817E812FC00919635 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 52854F0717E812FC00919635 /* main.m */; };
 		52854F1117E8132B00919635 /* TKStore.m in Sources */ = {isa = PBXBuildFile; fileRef = 52E2DA61178CEB1300CF96C5 /* TKStore.m */; };
@@ -44,6 +42,15 @@
 		52854F3A17E8202400919635 /* AFURLConnectionOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 52854F2F17E8202400919635 /* AFURLConnectionOperation.m */; };
 		52854F3B17E8202400919635 /* AFXMLRequestOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 52854F3117E8202400919635 /* AFXMLRequestOperation.m */; };
 		52854F3C17E8202400919635 /* UIImageView+AFNetworking.m in Sources */ = {isa = PBXBuildFile; fileRef = 52854F3317E8202400919635 /* UIImageView+AFNetworking.m */; };
+		528F7D4D17E8B4B200025ADC /* ShiftCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 528F7D4C17E8B4B200025ADC /* ShiftCell.xib */; };
+		528F7D5317E8B8E800025ADC /* JRAboutViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 528F7D5217E8B8E800025ADC /* JRAboutViewController.m */; };
+		528F7D5517E8B8F600025ADC /* AboutCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 528F7D5417E8B8F600025ADC /* AboutCell.xib */; };
+		528F7D5A17E8BF4800025ADC /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = 528F7D5717E8BF4800025ADC /* README.md */; };
+		528F7D5B17E8BF4800025ADC /* UIImage+RoundedImage.m in Sources */ = {isa = PBXBuildFile; fileRef = 528F7D5917E8BF4800025ADC /* UIImage+RoundedImage.m */; };
+		528F7D5E17E8BF6F00025ADC /* JRAboutMeCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 528F7D5D17E8BF6F00025ADC /* JRAboutMeCell.m */; };
+		5295A0D117E8D5CD00E2188A /* ProperImageCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5295A0D017E8D5CD00E2188A /* ProperImageCell.xib */; };
+		5295A0D417E8D66F00E2188A /* JRProperImageCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 5295A0D317E8D66F00E2188A /* JRProperImageCell.m */; };
+		5295A0D817E8DD1200E2188A /* JRScheduleTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5295A0D717E8DD1200E2188A /* JRScheduleTableViewController.m */; };
 		52E2DA1F178CEADB00CF96C5 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 52E2DA1E178CEADB00CF96C5 /* Foundation.framework */; };
 		52E2DA21178CEADB00CF96C5 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 52E2DA20178CEADB00CF96C5 /* CoreGraphics.framework */; };
 		52E2DA23178CEADB00CF96C5 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 52E2DA22178CEADB00CF96C5 /* UIKit.framework */; };
@@ -61,6 +68,12 @@
 		52E2DA72178CEB3F00CF96C5 /* TFHppleElement.m in Sources */ = {isa = PBXBuildFile; fileRef = 52E2DA6E178CEB3F00CF96C5 /* TFHppleElement.m */; };
 		52E2DA73178CEB3F00CF96C5 /* XPathQuery.m in Sources */ = {isa = PBXBuildFile; fileRef = 52E2DA70178CEB3F00CF96C5 /* XPathQuery.m */; };
 		52E2DA79178D058900CF96C5 /* libxml2.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 52E2DA78178D058900CF96C5 /* libxml2.dylib */; };
+		52F0078B17E8C3B600D444CF /* me.png in Resources */ = {isa = PBXBuildFile; fileRef = 52F0078A17E8C3B600D444CF /* me.png */; };
+		52F0078D17E8C5F100D444CF /* myfatface.png in Resources */ = {isa = PBXBuildFile; fileRef = 52F0078C17E8C5F100D444CF /* myfatface.png */; };
+		52F0078F17E8C98500D444CF /* twitter-bird-white-on-blue.png in Resources */ = {isa = PBXBuildFile; fileRef = 52F0078E17E8C98500D444CF /* twitter-bird-white-on-blue.png */; };
+		52F0079117E8CA6F00D444CF /* GitHub.png in Resources */ = {isa = PBXBuildFile; fileRef = 52F0079017E8CA6F00D444CF /* GitHub.png */; };
+		52F0079317E8CED300D444CF /* AboutTheAppCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 52F0079217E8CED300D444CF /* AboutTheAppCell.xib */; };
+		52F0079617E8D08800D444CF /* JRTextViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 52F0079517E8D08800D444CF /* JRTextViewCell.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -96,12 +109,9 @@
 		5223CDC717E6BBBD00788660 /* SVProgressHUD.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = SVProgressHUD.bundle; sourceTree = "<group>"; };
 		5223CDC817E6BBBD00788660 /* SVProgressHUD.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SVProgressHUD.h; sourceTree = "<group>"; };
 		5223CDC917E6BBBD00788660 /* SVProgressHUD.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SVProgressHUD.m; sourceTree = "<group>"; };
-		5223CDCE17E6CCA400788660 /* JRScheduleViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JRScheduleViewController.h; sourceTree = "<group>"; };
-		5223CDCF17E6CCA400788660 /* JRScheduleViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JRScheduleViewController.m; sourceTree = "<group>"; };
 		523CD30317ADD6460073372B /* EventKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = EventKit.framework; path = System/Library/Frameworks/EventKit.framework; sourceTree = SDKROOT; };
 		524BAF6D17E76F400044BDC7 /* JRColorTheme.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JRColorTheme.h; sourceTree = "<group>"; };
 		524BAF6E17E76F400044BDC7 /* JRColorTheme.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JRColorTheme.m; sourceTree = "<group>"; };
-		524BAF7117E779310044BDC7 /* DayView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DayView.xib; sourceTree = "<group>"; };
 		52854F0417E812FC00919635 /* TLCFrameworkTests */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = TLCFrameworkTests; sourceTree = BUILT_PRODUCTS_DIR; };
 		52854F0717E812FC00919635 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		52854F0A17E812FC00919635 /* TLCFrameworkTests-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "TLCFrameworkTests-Prefix.pch"; sourceTree = "<group>"; };
@@ -126,6 +136,20 @@
 		52854F3117E8202400919635 /* AFXMLRequestOperation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AFXMLRequestOperation.m; sourceTree = "<group>"; };
 		52854F3217E8202400919635 /* UIImageView+AFNetworking.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImageView+AFNetworking.h"; sourceTree = "<group>"; };
 		52854F3317E8202400919635 /* UIImageView+AFNetworking.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImageView+AFNetworking.m"; sourceTree = "<group>"; };
+		528F7D4C17E8B4B200025ADC /* ShiftCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ShiftCell.xib; sourceTree = "<group>"; };
+		528F7D5117E8B8E800025ADC /* JRAboutViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JRAboutViewController.h; sourceTree = "<group>"; };
+		528F7D5217E8B8E800025ADC /* JRAboutViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JRAboutViewController.m; sourceTree = "<group>"; };
+		528F7D5417E8B8F600025ADC /* AboutCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AboutCell.xib; sourceTree = "<group>"; };
+		528F7D5717E8BF4800025ADC /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = README.md; sourceTree = "<group>"; };
+		528F7D5817E8BF4800025ADC /* UIImage+RoundedImage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+RoundedImage.h"; sourceTree = "<group>"; };
+		528F7D5917E8BF4800025ADC /* UIImage+RoundedImage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+RoundedImage.m"; sourceTree = "<group>"; };
+		528F7D5C17E8BF6F00025ADC /* JRAboutMeCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JRAboutMeCell.h; sourceTree = "<group>"; };
+		528F7D5D17E8BF6F00025ADC /* JRAboutMeCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JRAboutMeCell.m; sourceTree = "<group>"; };
+		5295A0D017E8D5CD00E2188A /* ProperImageCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ProperImageCell.xib; sourceTree = "<group>"; };
+		5295A0D217E8D66F00E2188A /* JRProperImageCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JRProperImageCell.h; sourceTree = "<group>"; };
+		5295A0D317E8D66F00E2188A /* JRProperImageCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JRProperImageCell.m; sourceTree = "<group>"; };
+		5295A0D617E8DD1200E2188A /* JRScheduleTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JRScheduleTableViewController.h; sourceTree = "<group>"; };
+		5295A0D717E8DD1200E2188A /* JRScheduleTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JRScheduleTableViewController.m; sourceTree = "<group>"; };
 		52E2DA1B178CEADB00CF96C5 /* jTLC.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = jTLC.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		52E2DA1E178CEADB00CF96C5 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		52E2DA20178CEADB00CF96C5 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -159,6 +183,13 @@
 		52E2DA6F178CEB3F00CF96C5 /* XPathQuery.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XPathQuery.h; sourceTree = "<group>"; };
 		52E2DA70178CEB3F00CF96C5 /* XPathQuery.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XPathQuery.m; sourceTree = "<group>"; };
 		52E2DA78178D058900CF96C5 /* libxml2.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libxml2.dylib; path = usr/lib/libxml2.dylib; sourceTree = SDKROOT; };
+		52F0078A17E8C3B600D444CF /* me.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = me.png; sourceTree = "<group>"; };
+		52F0078C17E8C5F100D444CF /* myfatface.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = myfatface.png; sourceTree = "<group>"; };
+		52F0078E17E8C98500D444CF /* twitter-bird-white-on-blue.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "twitter-bird-white-on-blue.png"; sourceTree = "<group>"; };
+		52F0079017E8CA6F00D444CF /* GitHub.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = GitHub.png; sourceTree = "<group>"; };
+		52F0079217E8CED300D444CF /* AboutTheAppCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AboutTheAppCell.xib; sourceTree = "<group>"; };
+		52F0079417E8D08800D444CF /* JRTextViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JRTextViewCell.h; sourceTree = "<group>"; };
+		52F0079517E8D08800D444CF /* JRTextViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JRTextViewCell.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -191,6 +222,7 @@
 		521151D217E802AF0051ECEE /* Libraries */ = {
 			isa = PBXGroup;
 			children = (
+				528F7D5617E8BF4800025ADC /* UIimage-RoundedImage */,
 				52854F2017E8202400919635 /* AFNetworking */,
 				5223CDC517E6BBBD00788660 /* SVProgressHUD */,
 				5223CD8B17E6B1D400788660 /* iOS-RealTimeBlur */,
@@ -203,8 +235,11 @@
 		521151D417E802C20051ECEE /* User Interface */ = {
 			isa = PBXGroup;
 			children = (
+				524BAF6D17E76F400044BDC7 /* JRColorTheme.h */,
+				524BAF6E17E76F400044BDC7 /* JRColorTheme.m */,
 				5223CDCD17E6CC0B00788660 /* Shift Detail View */,
 				5223CDCC17E6CBCF00788660 /* Schedule View */,
+				528F7D4E17E8B85000025ADC /* About View */,
 				5223CD8417E6A48F00788660 /* Log In View */,
 			);
 			name = "User Interface";
@@ -250,8 +285,6 @@
 		5223CDB817E6B27F00788660 /* Categories */ = {
 			isa = PBXGroup;
 			children = (
-				524BAF6D17E76F400044BDC7 /* JRColorTheme.h */,
-				524BAF6E17E76F400044BDC7 /* JRColorTheme.m */,
 				5223CDBA17E6B29A00788660 /* UINavigationController+StatusBar.m */,
 			);
 			name = Categories;
@@ -272,9 +305,9 @@
 		5223CDCC17E6CBCF00788660 /* Schedule View */ = {
 			isa = PBXGroup;
 			children = (
-				5223CDCE17E6CCA400788660 /* JRScheduleViewController.h */,
-				5223CDCF17E6CCA400788660 /* JRScheduleViewController.m */,
-				524BAF7117E779310044BDC7 /* DayView.xib */,
+				528F7D4C17E8B4B200025ADC /* ShiftCell.xib */,
+				5295A0D617E8DD1200E2188A /* JRScheduleTableViewController.h */,
+				5295A0D717E8DD1200E2188A /* JRScheduleTableViewController.m */,
 			);
 			name = "Schedule View";
 			sourceTree = "<group>";
@@ -328,6 +361,43 @@
 			);
 			name = AFNetworking;
 			path = AFNetworking/AFNetworking;
+			sourceTree = "<group>";
+		};
+		528F7D4E17E8B85000025ADC /* About View */ = {
+			isa = PBXGroup;
+			children = (
+				52F0079717E8D49700D444CF /* Images */,
+				5295A0D517E8D72E00E2188A /* Cells */,
+				528F7D5117E8B8E800025ADC /* JRAboutViewController.h */,
+				528F7D5217E8B8E800025ADC /* JRAboutViewController.m */,
+			);
+			name = "About View";
+			sourceTree = "<group>";
+		};
+		528F7D5617E8BF4800025ADC /* UIimage-RoundedImage */ = {
+			isa = PBXGroup;
+			children = (
+				528F7D5717E8BF4800025ADC /* README.md */,
+				528F7D5817E8BF4800025ADC /* UIImage+RoundedImage.h */,
+				528F7D5917E8BF4800025ADC /* UIImage+RoundedImage.m */,
+			);
+			path = "UIimage-RoundedImage";
+			sourceTree = "<group>";
+		};
+		5295A0D517E8D72E00E2188A /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+				5295A0D017E8D5CD00E2188A /* ProperImageCell.xib */,
+				52F0079217E8CED300D444CF /* AboutTheAppCell.xib */,
+				528F7D5417E8B8F600025ADC /* AboutCell.xib */,
+				528F7D5C17E8BF6F00025ADC /* JRAboutMeCell.h */,
+				528F7D5D17E8BF6F00025ADC /* JRAboutMeCell.m */,
+				52F0079417E8D08800D444CF /* JRTextViewCell.h */,
+				52F0079517E8D08800D444CF /* JRTextViewCell.m */,
+				5295A0D217E8D66F00E2188A /* JRProperImageCell.h */,
+				5295A0D317E8D66F00E2188A /* JRProperImageCell.m */,
+			);
+			name = Cells;
 			sourceTree = "<group>";
 		};
 		52E2DA12178CEADB00CF96C5 = {
@@ -424,6 +494,17 @@
 			name = TFHpple;
 			sourceTree = "<group>";
 		};
+		52F0079717E8D49700D444CF /* Images */ = {
+			isa = PBXGroup;
+			children = (
+				52F0078E17E8C98500D444CF /* twitter-bird-white-on-blue.png */,
+				52F0079017E8CA6F00D444CF /* GitHub.png */,
+				52F0078C17E8C5F100D444CF /* myfatface.png */,
+				52F0078A17E8C3B600D444CF /* me.png */,
+			);
+			name = Images;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -504,11 +585,19 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				524BAF7217E779310044BDC7 /* DayView.xib in Resources */,
 				52E2DA3A178CEADB00CF96C5 /* Images.xcassets in Resources */,
 				52E2DA29178CEADB00CF96C5 /* InfoPlist.strings in Resources */,
+				5295A0D117E8D5CD00E2188A /* ProperImageCell.xib in Resources */,
+				528F7D4D17E8B4B200025ADC /* ShiftCell.xib in Resources */,
+				52F0079117E8CA6F00D444CF /* GitHub.png in Resources */,
+				528F7D5A17E8BF4800025ADC /* README.md in Resources */,
+				52F0079317E8CED300D444CF /* AboutTheAppCell.xib in Resources */,
+				52F0078B17E8C3B600D444CF /* me.png in Resources */,
+				52F0078F17E8C98500D444CF /* twitter-bird-white-on-blue.png in Resources */,
+				528F7D5517E8B8F600025ADC /* AboutCell.xib in Resources */,
 				5223CD7B17E69AF100788660 /* TextCell.xib in Resources */,
 				5223CDCA17E6BBBD00788660 /* SVProgressHUD.bundle in Resources */,
+				52F0078D17E8C5F100D444CF /* myfatface.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -541,19 +630,24 @@
 				5223CDBE17E6B2D000788660 /* JRMasterController.m in Sources */,
 				52854F3A17E8202400919635 /* AFURLConnectionOperation.m in Sources */,
 				52854F3B17E8202400919635 /* AFXMLRequestOperation.m in Sources */,
+				528F7D5B17E8BF4800025ADC /* UIImage+RoundedImage.m in Sources */,
 				52E2DA65178CEB1300CF96C5 /* TKShift.m in Sources */,
+				52F0079617E8D08800D444CF /* JRTextViewCell.m in Sources */,
 				52E2DA2F178CEADB00CF96C5 /* JRAppDelegate.m in Sources */,
 				52E2DA66178CEB1300CF96C5 /* TKTimePeriod.m in Sources */,
 				52E2DA64178CEB1300CF96C5 /* TKSession.m in Sources */,
 				52854F3C17E8202400919635 /* UIImageView+AFNetworking.m in Sources */,
 				5223CDCB17E6BBBD00788660 /* SVProgressHUD.m in Sources */,
 				52E2DA69178CEB1300CF96C5 /* TKStore.m in Sources */,
+				5295A0D817E8DD1200E2188A /* JRScheduleTableViewController.m in Sources */,
 				52E2DA71178CEB3F00CF96C5 /* TFHpple.m in Sources */,
+				5295A0D417E8D66F00E2188A /* JRProperImageCell.m in Sources */,
 				52854F3817E8202400919635 /* AFNetworkActivityIndicatorManager.m in Sources */,
-				5223CDD017E6CCA400788660 /* JRScheduleViewController.m in Sources */,
 				5223CDA817E6B1D400788660 /* DRNRealTimeBlurView.m in Sources */,
 				52854F3717E8202400919635 /* AFJSONRequestOperation.m in Sources */,
+				528F7D5317E8B8E800025ADC /* JRAboutViewController.m in Sources */,
 				5223CDA917E6B1D400788660 /* UIImage+BoxBlur.m in Sources */,
+				528F7D5E17E8BF6F00025ADC /* JRAboutMeCell.m in Sources */,
 				524BAF6F17E76F400044BDC7 /* JRColorTheme.m in Sources */,
 				5223CDBB17E6B29A00788660 /* UINavigationController+StatusBar.m in Sources */,
 				52854F3917E8202400919635 /* AFPropertyListRequestOperation.m in Sources */,

@@ -34,7 +34,7 @@
 
 
 - (NSString *)description {
-    return [NSString stringWithFormat:@"%@ dayOfMonth=%li, startTime=%02li:%02li, endTime=%02li:%02li, duration=%02li:%02li", [super description], (long)self.dayOfMonth, (long)self.startTime.hour, self.startTime.minute, self.endTime.hour, self.endTime.minute, self.duration.hour, self.duration.minute];
+    return [NSString stringWithFormat:@"%@ dayOfMonth=%li, startTime=%02li:%02li, endTime=%02li:%02li, duration=%02li:%02li", [super description], (long)self.dayOfMonth, (long)self.startTime.hour, (long)self.startTime.minute, (long)self.endTime.hour, (long)self.endTime.minute, (long)self.duration.hour, (long)self.duration.minute];
 }
 
 - (BOOL)eligibleForLunch {

@@ -19,6 +19,9 @@ PROP_STRONG UIColor *navigationBarColor;
 PROP_STRONG UIColor *labelColor;
 PROP_STRONG UIColor *tableSeparatorColor;
 PROP_STRONG UIColor *accentColor;
+PROP_STRONG UIColor *secondaryAccentColor;
+
+PROP_STRONG UIColor *subtitleTextColor;
 
 PROP_STRONG UIColor *disabledColor;
 

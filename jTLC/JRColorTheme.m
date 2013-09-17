@@ -17,9 +17,11 @@
     theme.foregroundColor       = [UIColor colorWithWhite:0.3 alpha:1];
     theme.labelColor            = [UIColor whiteColor];
     theme.tableSeparatorColor   = [UIColor colorWithWhite:0.8 alpha:0.2];
-    theme.disabledColor         = [UIColor colorWithWhite:0.8 alpha:1];
+    theme.disabledColor         = [UIColor colorWithWhite:0.6 alpha:1];
     theme.navigationBarColor    = theme.foregroundColor;
     theme.accentColor           = accent;
+    
+    theme.subtitleTextColor     = [UIColor colorWithWhite:0.8 alpha:1];
     
     return theme;
 }

@@ -11,17 +11,17 @@
 #import "JRLoginTableViewController.h"
 #import "GJB.h"
 #import "JRColorTheme.h"
-#import "JRScheduleViewController.h"
 
 @interface JRMasterController : NSObject {
     JRLoginTableViewController  *logInViewController;
-    JRScheduleViewController    *scheduleViewController;
 }
 
 + (instancetype)sharedInstance;
 
 - (void)save;
 - (void)presentUI;
+
+- (UINavigationController *)newThemedNavController;
 
 PROP_COPY   NSString *employeeID;
 PROP_COPY   NSString *password;

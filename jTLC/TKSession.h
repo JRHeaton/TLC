@@ -14,7 +14,7 @@
 typedef void (^TKSessionResultHandler)(BOOL success);
 typedef void (^TKSessionLogInResultHandler)(BOOL success, NSString *errorString);
 
-@interface TKSession : AFHTTPClient {
+@interface TKSession : NSObject {
 @private
     NSMutableArray  *_cachedShifts;
 }
