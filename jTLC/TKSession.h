@@ -7,13 +7,14 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "AFHTTPClient.h"
 
 @class TKEmployee;
 @class TKStore;
 typedef void (^TKSessionResultHandler)(BOOL success);
 typedef void (^TKSessionLogInResultHandler)(BOOL success, NSString *errorString);
 
-@interface TKSession : NSObject {
+@interface TKSession : AFHTTPClient {
 @private
     NSMutableArray  *_cachedShifts;
 }
