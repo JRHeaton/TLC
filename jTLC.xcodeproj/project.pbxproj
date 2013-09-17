@@ -413,6 +413,15 @@
 				CLASSPREFIX = JR;
 				LastUpgradeCheck = 0500;
 				ORGANIZATIONNAME = "John Heaton";
+				TargetAttributes = {
+					52E2DA1A178CEADB00CF96C5 = {
+						SystemCapabilities = {
+							com.apple.BackgroundModes = {
+								enabled = 0;
+							};
+						};
+					};
+				};
 			};
 			buildConfigurationList = 52E2DA16178CEADB00CF96C5 /* Build configuration list for PBXProject "jTLC" */;
 			compatibilityVersion = "Xcode 3.2";
@@ -611,7 +620,10 @@
 				GCC_PREFIX_HEADER = "jTLC/jTLC-Prefix.pch";
 				HEADER_SEARCH_PATHS = /usr/include/libxml2;
 				INFOPLIST_FILE = "jTLC/jTLC-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				OTHER_CFLAGS = "-DGJB_DEBUG";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = 1;
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -625,7 +637,10 @@
 				GCC_PREFIX_HEADER = "jTLC/jTLC-Prefix.pch";
 				HEADER_SEARCH_PATHS = /usr/include/libxml2;
 				INFOPLIST_FILE = "jTLC/jTLC-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				OTHER_CFLAGS = "";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = 1;
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;

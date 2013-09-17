@@ -21,6 +21,8 @@
     [self.window makeKeyAndVisible];
 
     [master presentUI];
+
+    JRLog(@"App started %d", 1);
     
     return YES;
 }
