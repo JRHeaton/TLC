@@ -51,6 +51,10 @@
 		5295A0D117E8D5CD00E2188A /* ProperImageCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5295A0D017E8D5CD00E2188A /* ProperImageCell.xib */; };
 		5295A0D417E8D66F00E2188A /* JRProperImageCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 5295A0D317E8D66F00E2188A /* JRProperImageCell.m */; };
 		5295A0D817E8DD1200E2188A /* JRScheduleTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5295A0D717E8DD1200E2188A /* JRScheduleTableViewController.m */; };
+		5295A0DF17E8EC6200E2188A /* JRColorRingImageView.m in Sources */ = {isa = PBXBuildFile; fileRef = 5295A0DE17E8EC6200E2188A /* JRColorRingImageView.m */; };
+		5295A0E317E8F72F00E2188A /* UINavigationBar+BigBar.m in Sources */ = {isa = PBXBuildFile; fileRef = 5295A0E217E8F72F00E2188A /* UINavigationBar+BigBar.m */; };
+		5295A0E617E8F89000E2188A /* JREmployeeDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5295A0E517E8F89000E2188A /* JREmployeeDetailViewController.m */; };
+		5295A0EA17E92B4300E2188A /* JRNavigationBar.m in Sources */ = {isa = PBXBuildFile; fileRef = 5295A0E917E92B4300E2188A /* JRNavigationBar.m */; };
 		52E2DA1F178CEADB00CF96C5 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 52E2DA1E178CEADB00CF96C5 /* Foundation.framework */; };
 		52E2DA21178CEADB00CF96C5 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 52E2DA20178CEADB00CF96C5 /* CoreGraphics.framework */; };
 		52E2DA23178CEADB00CF96C5 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 52E2DA22178CEADB00CF96C5 /* UIKit.framework */; };
@@ -150,6 +154,14 @@
 		5295A0D317E8D66F00E2188A /* JRProperImageCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JRProperImageCell.m; sourceTree = "<group>"; };
 		5295A0D617E8DD1200E2188A /* JRScheduleTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JRScheduleTableViewController.h; sourceTree = "<group>"; };
 		5295A0D717E8DD1200E2188A /* JRScheduleTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JRScheduleTableViewController.m; sourceTree = "<group>"; };
+		5295A0DD17E8EC6200E2188A /* JRColorRingImageView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JRColorRingImageView.h; sourceTree = "<group>"; };
+		5295A0DE17E8EC6200E2188A /* JRColorRingImageView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JRColorRingImageView.m; sourceTree = "<group>"; };
+		5295A0E117E8F72F00E2188A /* UINavigationBar+BigBar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UINavigationBar+BigBar.h"; sourceTree = "<group>"; };
+		5295A0E217E8F72F00E2188A /* UINavigationBar+BigBar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UINavigationBar+BigBar.m"; sourceTree = "<group>"; };
+		5295A0E417E8F89000E2188A /* JREmployeeDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JREmployeeDetailViewController.h; sourceTree = "<group>"; };
+		5295A0E517E8F89000E2188A /* JREmployeeDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JREmployeeDetailViewController.m; sourceTree = "<group>"; };
+		5295A0E817E92B4300E2188A /* JRNavigationBar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JRNavigationBar.h; sourceTree = "<group>"; };
+		5295A0E917E92B4300E2188A /* JRNavigationBar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JRNavigationBar.m; sourceTree = "<group>"; };
 		52E2DA1B178CEADB00CF96C5 /* jTLC.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = jTLC.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		52E2DA1E178CEADB00CF96C5 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		52E2DA20178CEADB00CF96C5 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -235,12 +247,14 @@
 		521151D417E802C20051ECEE /* User Interface */ = {
 			isa = PBXGroup;
 			children = (
+				5295A0E717E92B3500E2188A /* Custom Stuff */,
 				524BAF6D17E76F400044BDC7 /* JRColorTheme.h */,
 				524BAF6E17E76F400044BDC7 /* JRColorTheme.m */,
 				5223CDCD17E6CC0B00788660 /* Shift Detail View */,
 				5223CDCC17E6CBCF00788660 /* Schedule View */,
 				528F7D4E17E8B85000025ADC /* About View */,
 				5223CD8417E6A48F00788660 /* Log In View */,
+				5295A0E017E8F5A700E2188A /* Employee View */,
 			);
 			name = "User Interface";
 			sourceTree = "<group>";
@@ -286,6 +300,8 @@
 			isa = PBXGroup;
 			children = (
 				5223CDBA17E6B29A00788660 /* UINavigationController+StatusBar.m */,
+				5295A0E117E8F72F00E2188A /* UINavigationBar+BigBar.h */,
+				5295A0E217E8F72F00E2188A /* UINavigationBar+BigBar.m */,
 			);
 			name = Categories;
 			sourceTree = "<group>";
@@ -368,6 +384,8 @@
 			children = (
 				52F0079717E8D49700D444CF /* Images */,
 				5295A0D517E8D72E00E2188A /* Cells */,
+				5295A0DD17E8EC6200E2188A /* JRColorRingImageView.h */,
+				5295A0DE17E8EC6200E2188A /* JRColorRingImageView.m */,
 				528F7D5117E8B8E800025ADC /* JRAboutViewController.h */,
 				528F7D5217E8B8E800025ADC /* JRAboutViewController.m */,
 			);
@@ -398,6 +416,24 @@
 				5295A0D317E8D66F00E2188A /* JRProperImageCell.m */,
 			);
 			name = Cells;
+			sourceTree = "<group>";
+		};
+		5295A0E017E8F5A700E2188A /* Employee View */ = {
+			isa = PBXGroup;
+			children = (
+				5295A0E417E8F89000E2188A /* JREmployeeDetailViewController.h */,
+				5295A0E517E8F89000E2188A /* JREmployeeDetailViewController.m */,
+			);
+			name = "Employee View";
+			sourceTree = "<group>";
+		};
+		5295A0E717E92B3500E2188A /* Custom Stuff */ = {
+			isa = PBXGroup;
+			children = (
+				5295A0E817E92B4300E2188A /* JRNavigationBar.h */,
+				5295A0E917E92B4300E2188A /* JRNavigationBar.m */,
+			);
+			name = "Custom Stuff";
 			sourceTree = "<group>";
 		};
 		52E2DA12178CEADB00CF96C5 = {
@@ -639,20 +675,24 @@
 				52854F3C17E8202400919635 /* UIImageView+AFNetworking.m in Sources */,
 				5223CDCB17E6BBBD00788660 /* SVProgressHUD.m in Sources */,
 				52E2DA69178CEB1300CF96C5 /* TKStore.m in Sources */,
+				5295A0DF17E8EC6200E2188A /* JRColorRingImageView.m in Sources */,
 				5295A0D817E8DD1200E2188A /* JRScheduleTableViewController.m in Sources */,
 				52E2DA71178CEB3F00CF96C5 /* TFHpple.m in Sources */,
 				5295A0D417E8D66F00E2188A /* JRProperImageCell.m in Sources */,
 				52854F3817E8202400919635 /* AFNetworkActivityIndicatorManager.m in Sources */,
 				5223CDA817E6B1D400788660 /* DRNRealTimeBlurView.m in Sources */,
+				5295A0E617E8F89000E2188A /* JREmployeeDetailViewController.m in Sources */,
 				52854F3717E8202400919635 /* AFJSONRequestOperation.m in Sources */,
 				528F7D5317E8B8E800025ADC /* JRAboutViewController.m in Sources */,
 				5223CDA917E6B1D400788660 /* UIImage+BoxBlur.m in Sources */,
+				5295A0EA17E92B4300E2188A /* JRNavigationBar.m in Sources */,
 				528F7D5E17E8BF6F00025ADC /* JRAboutMeCell.m in Sources */,
 				524BAF6F17E76F400044BDC7 /* JRColorTheme.m in Sources */,
 				5223CDBB17E6B29A00788660 /* UINavigationController+StatusBar.m in Sources */,
 				52854F3917E8202400919635 /* AFPropertyListRequestOperation.m in Sources */,
 				52E2DA68178CEB1300CF96C5 /* TKDepartment.m in Sources */,
 				52E2DA2B178CEADB00CF96C5 /* main.m in Sources */,
+				5295A0E317E8F72F00E2188A /* UINavigationBar+BigBar.m in Sources */,
 				52E2DA67178CEB1300CF96C5 /* TKEmployee.m in Sources */,
 				5223CD7E17E69BBF00788660 /* JRLightPlaceholderTextField.m in Sources */,
 				52E2DA73178CEB3F00CF96C5 /* XPathQuery.m in Sources */,

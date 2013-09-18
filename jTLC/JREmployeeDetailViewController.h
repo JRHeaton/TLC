@@ -1,5 +1,5 @@
 //
-//  JRAboutMeCell.h
+//  JREmployeeDetailViewController.h
 //  jTLC
 //
 //  Created by John Heaton on 9/17/13.
@@ -8,10 +8,10 @@
 
 #import <UIKit/UIKit.h>
 #import "GJB.h"
-#import "JRColorRingImageView.h"
+#import "TLCKit.h"
 
-@interface JRAboutMeCell : UITableViewCell
+@interface JREmployeeDetailViewController : UITableViewController
 
-PROP_STRONG IBOutlet JRColorRingImageView *myImage;
+PROP_STRONG TKEmployee *employee;
 
 @end

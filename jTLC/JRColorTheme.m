@@ -21,6 +21,7 @@
     theme.navigationBarColor    = theme.foregroundColor;
     theme.accentColor           = accent;
     
+    theme.disabledTextColor     = [UIColor colorWithWhite:0.5 alpha:1];
     theme.subtitleTextColor     = [UIColor colorWithWhite:0.8 alpha:1];
     
     return theme;

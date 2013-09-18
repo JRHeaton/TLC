@@ -22,6 +22,7 @@ PROP_STRONG UIColor *accentColor;
 PROP_STRONG UIColor *secondaryAccentColor;
 
 PROP_STRONG UIColor *subtitleTextColor;
+PROP_STRONG UIColor *disabledTextColor;
 
 PROP_STRONG UIColor *disabledColor;
 

@@ -22,7 +22,7 @@
 
 - (void)setPlaceholder:(NSString *)placeholder {
     if(!self.placeholderColor)
-        self.placeholderColor = [JRMasterController sharedInstance].colorTheme.disabledColor;
+        self.placeholderColor = [JRMasterController sharedInstance].colorTheme.disabledTextColor;
 
     [self setAttributedPlaceholder:[[NSAttributedString alloc] initWithString:placeholder attributes:@{ NSForegroundColorAttributeName : self.placeholderColor }]];
 }

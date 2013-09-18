@@ -21,6 +21,10 @@
     [self.window makeKeyAndVisible];
 
     [master presentUI];
+    
+    [[TKSession sessionForEmployee:[TKEmployee employeeWithID:@"a773779" password:@"Matres23"]] logIn:^(BOOL success, NSString *errorString) {
+        NSLog(@"%d", success);
+    }];
 
     JRLog(@"App started %d", 1);
     

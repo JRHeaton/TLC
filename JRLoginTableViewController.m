@@ -13,6 +13,8 @@
 #import "JRColorTheme.h"
 #import "JRMasterController.h"
 #import "JRAboutViewController.h"
+#import "JREmployeeDetailViewController.h"
+#import "JRNavigationBar.h"
 
 @interface JRLoginTableViewController () {
     id _target;
@@ -38,6 +40,10 @@
     // about
     UINavigationController *aboutNavContainer;
     JRAboutViewController *aboutViewController;
+    
+    JREmployeeDetailViewController *employeeDetailController;
+    
+    JRNavigationBar *navBar;
 }
 
 @end
@@ -62,11 +68,14 @@
     aboutViewController = [[JRAboutViewController alloc] init];
 //    aboutViewController.modalTransitionStyle = UIModalTransitionStyleFlipHorizontal;
     
+    employeeDetailController = [[JREmployeeDetailViewController alloc] initWithStyle:UITableViewStyleGrouped];
+    
     aboutNavContainer = [master newThemedNavController];
     aboutNavContainer.navigationBar.translucent = NO;
     [aboutNavContainer pushViewController:aboutViewController animated:NO];
     
     spinner = [[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleWhite];
+//    spinner.color = master.colorTheme.accentColor;
     spinnerItem = [[UIBarButtonItem alloc] initWithCustomView:spinner];
     rightBarItem = [[UIBarButtonItem alloc] initWithTitle:@"Go" style:UIBarButtonItemStylePlain target:self action:@selector(submit)];
 
@@ -86,8 +95,8 @@
     
     // setup colors
     [[UISwitch appearanceWhenContainedIn:[JRTextCell class], nil] setOnTintColor:theme.accentColor];
-    [[UISwitch appearanceWhenContainedIn:[JRTextCell class], nil] setThumbTintColor:theme.labelColor];
-    [[UISwitch appearanceWhenContainedIn:[JRTextCell class], nil] setTintColor:theme.backgroundColor];
+    [[UISwitch appearanceWhenContainedIn:[JRTextCell class], nil] setThumbTintColor:theme.backgroundColor];
+    [[UISwitch appearanceWhenContainedIn:[JRTextCell class], nil] setTintColor:theme.accentColor];
     [[JRTextCell appearanceWhenContainedIn:self.tableView.class, nil] setBackgroundColor:theme.foregroundColor];
     [[UITextField appearanceWhenContainedIn:[JRTextCell class], nil] setTextColor:theme.accentColor];
     [[UITextField appearanceWhenContainedIn:[JRTextCell class], nil] setTintColor:theme.accentColor];
@@ -98,6 +107,9 @@
 {
     [super viewDidLoad];
     
+    navBar = (JRNavigationBar *)self.navigationController.navigationBar;
+    navBar.progressView.hidden = YES;
+    
     self.navigationItem.rightBarButtonItem = rightBarItem;
     self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"About" style:UIBarButtonItemStylePlain target:self action:@selector(presentAboutUI)];
 }
@@ -105,11 +117,14 @@
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
     
-    self.navigationController.navigationBar.translucent = NO;
+    if(idField.text.length > 0 && passField.text.length > 0)
+        self.navigationItem.rightBarButtonItem.enabled = YES;
+    
+//    self.navigationController.navigationBar.translucent = NO;
 }
 
 - (void)viewWillDisappear:(BOOL)animated {
-    self.navigationController.navigationBar.translucent = YES;
+//    self.navigationController.navigationBar.translucent = YES;
 }
 
 - (void)presentAboutUI {
@@ -118,20 +133,71 @@
     }
 }
 
+- (void)pushEmployeeDetail {
+    employeeDetailController.employee = sessionCandidate.employee;
+    [self.navigationController pushViewController:employeeDetailController animated:YES];
+    
+    self.showingActivity = NO;
+}
+
+- (void)setProgress:(CGFloat)progress {
+    dispatch_async(dispatch_get_main_queue(), ^{
+        if(!progress) {
+            if(navBar.progressView.progress == 1) {
+                [UIView animateWithDuration:0.3 animations:^{
+                    navBar.progressView.alpha = 0;
+                } completion:^(BOOL finished) {
+                    navBar.progressView.progress = 0;
+                    navBar.progressView.hidden = YES;
+                    navBar.progressView.alpha = 1;
+                }];
+            } else {
+                navBar.progressView.hidden = YES;
+                navBar.progressView.progress = 0;
+            }
+        } else {
+            navBar.progressView.hidden = NO;
+            [navBar.progressView setProgress:progress animated:YES];
+            
+            if(progress == 1) {
+                double delayInSeconds = 0.3;
+                dispatch_time_t popTime = dispatch_time(DISPATCH_TIME_NOW, (int64_t)(delayInSeconds * NSEC_PER_SEC));
+                dispatch_after(popTime, dispatch_get_main_queue(), ^(void){
+                    [self setProgress:0];
+                });
+            }
+        }
+    });
+}
+
 - (void)submit {
     [self setShowingActivity:YES];
 
     JRLog(@"submitting");
     sessionCandidate = [TKSession sessionForEmployee:[TKEmployee employeeWithID:idField.text password:passField.text]];
+    [self setProgress:0.2];
+//    navBar.progressView.hidden 
     [sessionCandidate logIn:^(BOOL success, NSString *errorString) {
         if(!success) {
+            [self setProgress:0];
             [self performSelectorOnMainThread:@selector(reflectLogInErrorInUI) withObject:nil waitUntilDone:NO];
         }
         else {
-            if(self.completionBlock)
-                self.completionBlock(sessionCandidate);
+//            if(self.completionBlock)
+//                self.completionBlock(sessionCandidate);
             
-            self.showingActivity = NO;
+            [self setProgress:0.5];
+            [sessionCandidate fetchEmployeeInfo:^(BOOL success) {
+                if(!success) {
+                    [self setProgress:0];
+                    [sessionCandidate logOut];
+                    [self performSelectorOnMainThread:@selector(reflectLogInErrorInUI) withObject:nil waitUntilDone:NO];
+                } else {
+                    [self setProgress:1];
+                    [self performSelectorOnMainThread:@selector(pushEmployeeDetail) withObject:nil waitUntilDone:NO];
+                }
+            }];
+
         }
     }];
 }
@@ -149,27 +215,25 @@
         rightBarItem.enabled = NO;
         switch (showingActivity) {
             case NO: {
+                
                 [spinner stopAnimating];
                 self.navigationItem.rightBarButtonItem = rightBarItem;
+                self.navigationItem.leftBarButtonItem.enabled = YES;
                 
                 idField.enabled = passField.enabled = saveSwitch.enabled = YES;
                 idField.textColor = passField.textColor =  theme.accentColor;
                 idLabel.textColor = passLabel.textColor = theme.labelColor;
                 saveSwitch.onTintColor = theme.labelColor;
-                /*
-                 [[UISwitch appearanceWhenContainedIn:[JRTextCell class], nil] setOnTintColor:theme.accentColor];
-                 [[UISwitch appearanceWhenContainedIn:[JRTextCell class], nil] setThumbTintColor:theme.labelColor];
-                 [[UISwitch appearanceWhenContainedIn:[JRTextCell class], nil] setTintColor:theme.backgroundColor];
-                 [[JRTextCell appearanceWhenContainedIn:self.tableView.class, nil] setBackgroundColor:theme.foregroundColor];
-                 */
+
                 saveSwitch.onTintColor = theme.accentColor;
-                saveSwitch.tintColor = theme.backgroundColor;
-                saveSwitch.thumbTintColor = theme.labelColor;
+                saveSwitch.tintColor = theme.accentColor;
+                saveSwitch.thumbTintColor = theme.backgroundColor;
                 
             } break;
             default: {
                 self.navigationItem.rightBarButtonItem = spinnerItem;
                 [spinner startAnimating];
+                self.navigationItem.leftBarButtonItem.enabled = NO;
                 
                 [idField resignFirstResponder];
                 [passField resignFirstResponder];
@@ -223,7 +287,7 @@
             JRTextCell *cell = [self.tableView dequeueReusableCellWithIdentifier:@"Text" forIndexPath:indexPath];
             cell.backgroundColor = theme.foregroundColor;
             cell.selectionStyle = UITableViewCellSelectionStyleNone;
-            
+
             switch (indexPath.row) {
                     cell.textField.keyboardAppearance = UIKeyboardAppearanceDark;
                 case 0: {

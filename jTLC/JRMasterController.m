@@ -9,6 +9,7 @@
 #import "JRMasterController.h"
 #import "TLCKit.h"
 #import "GJB.h"
+#import "JRNavigationBar.h"
 
 #define DEBUG_LOGIN_UI 1
 
@@ -47,7 +48,7 @@ static JRMasterController *_sharedJRMasterController = nil;
         
         self.rootNavigationController = [self newThemedNavController];
         logInViewController = [[JRLoginTableViewController alloc] init];
-        logInViewController.modalTransitionStyle = UIModalTransitionStyleCrossDissolve;
+        logInViewController.modalTransitionStyle = UIModalTransitionStyleFlipHorizontal;
         
         __unsafe_unretained JRMasterController *_self = self;
         logInViewController.completionBlock = ^(TKSession *session) {
@@ -89,7 +90,7 @@ static JRMasterController *_sharedJRMasterController = nil;
     [self save];
     
     [self.rootNavigationController dismissViewControllerAnimated:YES completion:^{
-        
+        [self.rootNavigationController popToRootViewControllerAnimated:NO];
     }];
 }
 
@@ -113,11 +114,15 @@ static JRMasterController *_sharedJRMasterController = nil;
 #pragma mark - Private methods
 
 - (UINavigationController *)newThemedNavController {
-    UINavigationController *nav = [UINavigationController new];
+    UINavigationController *nav = [[UINavigationController alloc] initWithNavigationBarClass:[JRNavigationBar class] toolbarClass:[UIToolbar class]];
     nav.navigationBar.barTintColor = self.colorTheme.navigationBarColor;
     nav.navigationBar.titleTextAttributes = @{ NSForegroundColorAttributeName : [UIColor whiteColor] };
     nav.navigationBar.tintColor = self.colorTheme.accentColor;
     nav.navigationBar.barTintColor = self.colorTheme.navigationBarColor;
+    nav.navigationBar.translucent = NO;
+    
+    JRNavigationBar *navBar = (JRNavigationBar *)nav.navigationBar;
+    navBar.progressView.progressTintColor = self.colorTheme.accentColor;
     
     return nav;
 }

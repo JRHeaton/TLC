@@ -1,5 +1,5 @@
 //
-//  JRAboutMeCell.h
+//  JRNavigationBar.h
 //  jTLC
 //
 //  Created by John Heaton on 9/17/13.
@@ -8,10 +8,9 @@
 
 #import <UIKit/UIKit.h>
 #import "GJB.h"
-#import "JRColorRingImageView.h"
 
-@interface JRAboutMeCell : UITableViewCell
+@interface JRNavigationBar : UINavigationBar
 
-PROP_STRONG IBOutlet JRColorRingImageView *myImage;
+PROP_STRONG UIProgressView *progressView;
 
 @end

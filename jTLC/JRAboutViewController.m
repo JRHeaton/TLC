@@ -38,6 +38,12 @@
     return self;
 }
 
+- (void)viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:animated];
+    
+    [self.tableView scrollRectToVisible:CGRectZero animated:NO];
+}
+
 - (void)loadView {
     [super loadView];
     
@@ -71,8 +77,9 @@
 
 - (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section {
     switch (section) {
-        case 1: return @"About The App"; break;
-        case 0: return @"About Me"; break;
+        case 2: return @"About The App"; break;
+        case 1: return nil;
+        case 0: return @"About The Developer"; break;
     }
     
     return nil;
@@ -80,7 +87,7 @@
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
     switch (indexPath.section) {
-        case 1: {
+        case 2: {
             switch (indexPath.row) {
                 case 0: return 212; break;
             }
@@ -92,19 +99,20 @@
         } break;
     }
     
-    return 44;
+    return 65;
 }
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
-    return 2;
+    return 3;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
     switch (section) {
-        case 0: return 3; break;
-        case 1: return 1; break;
+        case 0: return 1; break;
+        case 1: return 2; break;
+        case 2: return 1; break;
     }
     
     return 0;
@@ -117,7 +125,7 @@
     UITableViewCell *c = nil;
     
     switch (indexPath.section) {
-        case 1: {
+        case 2: {
             switch (indexPath.row) {
                 case 0: {
                     JRTextViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"AboutTheApp" forIndexPath:indexPath];
@@ -137,39 +145,44 @@
                     JRAboutMeCell *cell = [tableView dequeueReusableCellWithIdentifier:AboutMeCellIdentifier forIndexPath:indexPath];
                     cell.myImage.image = myImage;
                     cell.myImage.backgroundColor = [UIColor clearColor];
+                    cell.separatorInset = UIEdgeInsetsZero;
                     cell.selectionStyle = UITableViewCellSelectionStyleNone;
                     
                     c = cell;
                 } break;
-                case 1: {
+            }
+        } break;
+        case 1: {
+            switch (indexPath.row) {
+                case 0: {
                     JRProperImageCell *cell = [tableView dequeueReusableCellWithIdentifier:@"ProperImage" forIndexPath:indexPath];
                     cell.properLabel.text = @"Twitter";
-//                    cell.textLabel.font = [UIFont fontWithDescriptor:[UIFontDescriptor fontDescriptorWithName:@"Helvetica Neue Thin" size:17] size:17];
+                    //                    cell.textLabel.font = [UIFont fontWithDescriptor:[UIFontDescriptor fontDescriptorWithName:@"Helvetica Neue Thin" size:17] size:17];
                     cell.properLabel.textColor = master.colorTheme.labelColor;
                     cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
                     cell.backgroundColor = master.colorTheme.foregroundColor;
                     cell.properSubLabel.text = @"@JohnRHeaton";
                     cell.properSubLabel.textColor = master.colorTheme.accentColor;
-                    cell.separatorInset = UIEdgeInsetsMake(0, 44+14, 0, 0);
+                    cell.separatorInset = UIEdgeInsetsMake(0, 65+14, 0, 0);
 #if CELL_IMAGES == 1
                     cell.properImageView.image = twitterImage;
 #endif
                     c = cell;
                 } break;
-                case 2: {
+                case 1: {
                     JRProperImageCell *cell = [tableView dequeueReusableCellWithIdentifier:@"ProperImage" forIndexPath:indexPath];
                     cell.properLabel.text = @"GitHub";
-//                    cell.textLabel.font = [UIFont fontWithDescriptor:[UIFontDescriptor fontDescriptorWithName:@"Helvetica Neue Thin" size:17] size:17];
+                    //                    cell.textLabel.font = [UIFont fontWithDescriptor:[UIFontDescriptor fontDescriptorWithName:@"Helvetica Neue Thin" size:17] size:17];
                     cell.properLabel.textColor = master.colorTheme.labelColor;
                     cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
                     cell.backgroundColor = master.colorTheme.foregroundColor;
                     cell.properSubLabel.text = @"JRHeaton";
                     cell.properSubLabel.textColor = master.colorTheme.accentColor;
-
+                    
 #if CELL_IMAGES == 1
                     cell.properImageView.backgroundColor = [UIColor whiteColor];
                     cell.properImageView.image = cell.properImageView.highlightedImage = gitHubImage;
-
+                    //                    cell.properImageView.contentMode = UIViewContentModeScaleAspectFill;
 #endif
                     
                     c = cell;
