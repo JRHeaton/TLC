@@ -7,10 +7,9 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "GJB.h"
 
 @interface JRNavigationBar : UINavigationBar
 
-PROP_STRONG UIProgressView *progressView;
+@property (nonatomic, strong) UIProgressView *progressView;
 
 @end

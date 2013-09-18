@@ -84,7 +84,7 @@
     //    self.tableView.backgroundColor = [UIColor tlcBackgroundColor];
     self.title = @"Log In";
     self.tableView.keyboardDismissMode = UIScrollViewKeyboardDismissModeOnDrag;
-    self.tableView.backgroundColor = theme.backgroundColor;
+//    self.tableView.backgroundColor = theme.backgroundColor;
     [self.tableView registerNib:[UINib nibWithNibName:@"TextCell" bundle:nil] forCellReuseIdentifier:@"Text"];
     self.tableView.rowHeight = 64;
     self.tableView.separatorColor = theme.tableSeparatorColor;
@@ -93,9 +93,17 @@
     saveSwitch.on = YES;
     //    saveSwitch.onTintColor = [UIColor orangeColor];
     
+    
+    // COLORS
+    JRThemeManager *m = [JRThemeManager sharedInstance];
+    [m registerView:self.tableView keyPath:JRThemeManagerKeyPathBackgroundColor colorType:JRThemeColorTypeBackground];
+//    [m registerViewOrAppearance:[UISwitch appearanceWhenContainedIn:[JRTextCell class], nil] keyPath:JRThemeManagerKeyPathThumbTintColor colorType:JRThemeColorTypeBackground];
+    
+    NSLog(@"%@", ((JRNavigationController *) self.navigationController).navigationBar.progressView);
+ 
     // setup colors
     [[UISwitch appearanceWhenContainedIn:[JRTextCell class], nil] setOnTintColor:theme.accentColor];
-    [[UISwitch appearanceWhenContainedIn:[JRTextCell class], nil] setThumbTintColor:theme.backgroundColor];
+//    [[UISwitch appearanceWhenContainedIn:[JRTextCell class], nil] setThumbTintColor:theme.backgroundColor];
     [[UISwitch appearanceWhenContainedIn:[JRTextCell class], nil] setTintColor:theme.accentColor];
     [[JRTextCell appearanceWhenContainedIn:self.tableView.class, nil] setBackgroundColor:theme.foregroundColor];
     [[UITextField appearanceWhenContainedIn:[JRTextCell class], nil] setTextColor:theme.accentColor];
@@ -103,12 +111,16 @@
     //    [[UILabel appearanceWhenContainedIn:[JRTextCell class], nil] setTextColor:[UIColor tlcLogInCellLabelColor]];
 }
 
+- (void)themeChanged:(JRTheme *)theme {
+    
+}
+
 - (void)viewDidLoad
 {
     [super viewDidLoad];
     
     navBar = (JRNavigationBar *)self.navigationController.navigationBar;
-    navBar.progressView.hidden = YES;
+//    navBar.progressView.hidden = YES;
     
     self.navigationItem.rightBarButtonItem = rightBarItem;
     self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"About" style:UIBarButtonItemStylePlain target:self action:@selector(presentAboutUI)];
@@ -182,25 +194,28 @@
 
     JRLog(@"submitting");
     sessionCandidate = [TKSession sessionForEmployee:[TKEmployee employeeWithID:idField.text password:passField.text]];
-    [self setProgress:0.2];
-//    navBar.progressView.hidden 
+//    [self setProgress:0.2];
+    [self setNavigationBarProgress:0.2];
+//    navBar.progressView.hidden
     [sessionCandidate logIn:^(BOOL success, NSString *errorString) {
         if(!success) {
-            [self setProgress:0];
+            [self setNavigationBarProgress:0];
             [self performSelectorOnMainThread:@selector(reflectLogInErrorInUI) withObject:nil waitUntilDone:NO];
         }
         else {
 //            if(self.completionBlock)
 //                self.completionBlock(sessionCandidate);
             
-            [self setProgress:0.5];
+            [self setNavigationBarProgress:0.5];
+
+//            [self setProgress:0.5];
             [sessionCandidate fetchEmployeeInfo:^(BOOL success) {
                 if(!success) {
-                    [self setProgress:0];
+                    [self setNavigationBarProgress:0];
                     [sessionCandidate logOut];
                     [self performSelectorOnMainThread:@selector(reflectLogInErrorInUI) withObject:nil waitUntilDone:NO];
                 } else {
-                    [self setProgress:1];
+                    [self setNavigationBarProgress:1];
                     [self performSelectorOnMainThread:@selector(pushEmployeeDetail) withObject:nil waitUntilDone:NO];
                 }
             }];

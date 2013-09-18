@@ -10,8 +10,10 @@
 #import "TKSession.h"
 #import "JRLoginTableViewController.h"
 #import "GJB.h"
-#import "JRColorTheme.h"
 #import "JRScheduleTableViewController.h"
+#import "JRThemeManager.h"
+#import "JRColorTheme.h"
+#import "JRNavigationController.h"
 
 @interface JRMasterController : NSObject {
     JRLoginTableViewController  *logInViewController;
@@ -23,16 +25,17 @@
 - (void)save;
 - (void)presentUI;
 
-- (UINavigationController *)newThemedNavController;
+- (JRNavigationController *)newThemedNavController;
 
 PROP_COPY   NSString *employeeID;
 PROP_COPY   NSString *password;
 
 PROP_STRONG TKSession *session;
 
-PROP_STRONG UINavigationController *rootNavigationController;
-PROP_STRONG UINavigationController *topNavigationController;
+PROP_STRONG JRNavigationController *rootNavigationController;
+PROP_STRONG JRNavigationController *topNavigationController;
 
 PROP_STRONG JRColorTheme *colorTheme;
+PROP_STRONG JRTheme *theme;
 
 @end

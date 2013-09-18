@@ -57,6 +57,11 @@
 		5295A0EA17E92B4300E2188A /* JRNavigationBar.m in Sources */ = {isa = PBXBuildFile; fileRef = 5295A0E917E92B4300E2188A /* JRNavigationBar.m */; };
 		5295A0ED17E93E0800E2188A /* JRRoundedColorView.m in Sources */ = {isa = PBXBuildFile; fileRef = 5295A0EC17E93E0800E2188A /* JRRoundedColorView.m */; };
 		5295A0F017E944AA00E2188A /* JRSolidBGColorView.m in Sources */ = {isa = PBXBuildFile; fileRef = 5295A0EF17E944AA00E2188A /* JRSolidBGColorView.m */; };
+		5295A0F417E9481000E2188A /* JRThemeManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 5295A0F317E9481000E2188A /* JRThemeManager.m */; };
+		5295A0F717E9481D00E2188A /* JRTheme.m in Sources */ = {isa = PBXBuildFile; fileRef = 5295A0F617E9481D00E2188A /* JRTheme.m */; };
+		5295A0FA17E95E5E00E2188A /* JRThemedViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5295A0F917E95E5E00E2188A /* JRThemedViewController.m */; };
+		5295A0FD17E95FC500E2188A /* JRNavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5295A0FC17E95FC500E2188A /* JRNavigationController.m */; };
+		5295A10017E962A600E2188A /* JRThemedTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5295A0FF17E962A600E2188A /* JRThemedTableViewController.m */; };
 		52E2DA1F178CEADB00CF96C5 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 52E2DA1E178CEADB00CF96C5 /* Foundation.framework */; };
 		52E2DA21178CEADB00CF96C5 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 52E2DA20178CEADB00CF96C5 /* CoreGraphics.framework */; };
 		52E2DA23178CEADB00CF96C5 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 52E2DA22178CEADB00CF96C5 /* UIKit.framework */; };
@@ -168,6 +173,16 @@
 		5295A0EC17E93E0800E2188A /* JRRoundedColorView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JRRoundedColorView.m; sourceTree = "<group>"; };
 		5295A0EE17E944AA00E2188A /* JRSolidBGColorView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JRSolidBGColorView.h; sourceTree = "<group>"; };
 		5295A0EF17E944AA00E2188A /* JRSolidBGColorView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JRSolidBGColorView.m; sourceTree = "<group>"; };
+		5295A0F217E9481000E2188A /* JRThemeManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JRThemeManager.h; sourceTree = "<group>"; };
+		5295A0F317E9481000E2188A /* JRThemeManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JRThemeManager.m; sourceTree = "<group>"; };
+		5295A0F517E9481D00E2188A /* JRTheme.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JRTheme.h; sourceTree = "<group>"; };
+		5295A0F617E9481D00E2188A /* JRTheme.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JRTheme.m; sourceTree = "<group>"; };
+		5295A0F817E95E5E00E2188A /* JRThemedViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JRThemedViewController.h; sourceTree = "<group>"; };
+		5295A0F917E95E5E00E2188A /* JRThemedViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JRThemedViewController.m; sourceTree = "<group>"; };
+		5295A0FB17E95FC500E2188A /* JRNavigationController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JRNavigationController.h; sourceTree = "<group>"; };
+		5295A0FC17E95FC500E2188A /* JRNavigationController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JRNavigationController.m; sourceTree = "<group>"; };
+		5295A0FE17E962A600E2188A /* JRThemedTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JRThemedTableViewController.h; sourceTree = "<group>"; };
+		5295A0FF17E962A600E2188A /* JRThemedTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JRThemedTableViewController.m; sourceTree = "<group>"; };
 		52E2DA1B178CEADB00CF96C5 /* jTLC.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = jTLC.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		52E2DA1E178CEADB00CF96C5 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		52E2DA20178CEADB00CF96C5 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -440,10 +455,27 @@
 		5295A0E717E92B3500E2188A /* Custom Stuff */ = {
 			isa = PBXGroup;
 			children = (
-				5295A0E817E92B4300E2188A /* JRNavigationBar.h */,
-				5295A0E917E92B4300E2188A /* JRNavigationBar.m */,
 			);
 			name = "Custom Stuff";
+			sourceTree = "<group>";
+		};
+		5295A0F117E947FE00E2188A /* Custom UI Framework */ = {
+			isa = PBXGroup;
+			children = (
+				5295A0F217E9481000E2188A /* JRThemeManager.h */,
+				5295A0F317E9481000E2188A /* JRThemeManager.m */,
+				5295A0F517E9481D00E2188A /* JRTheme.h */,
+				5295A0F617E9481D00E2188A /* JRTheme.m */,
+				5295A0E817E92B4300E2188A /* JRNavigationBar.h */,
+				5295A0E917E92B4300E2188A /* JRNavigationBar.m */,
+				5295A0F817E95E5E00E2188A /* JRThemedViewController.h */,
+				5295A0F917E95E5E00E2188A /* JRThemedViewController.m */,
+				5295A0FE17E962A600E2188A /* JRThemedTableViewController.h */,
+				5295A0FF17E962A600E2188A /* JRThemedTableViewController.m */,
+				5295A0FB17E95FC500E2188A /* JRNavigationController.h */,
+				5295A0FC17E95FC500E2188A /* JRNavigationController.m */,
+			);
+			name = "Custom UI Framework";
 			sourceTree = "<group>";
 		};
 		52E2DA12178CEADB00CF96C5 = {
@@ -484,6 +516,7 @@
 		52E2DA24178CEADB00CF96C5 /* jTLC */ = {
 			isa = PBXGroup;
 			children = (
+				5295A0F117E947FE00E2188A /* Custom UI Framework */,
 				521151D217E802AF0051ECEE /* Libraries */,
 				5223CDB817E6B27F00788660 /* Categories */,
 				521151D417E802C20051ECEE /* User Interface */,
@@ -672,10 +705,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				5223CD7917E69A9800788660 /* JRLoginTableViewController.m in Sources */,
+				5295A0FA17E95E5E00E2188A /* JRThemedViewController.m in Sources */,
 				5223CD8117E69C2200788660 /* JRTextCell.m in Sources */,
+				5295A0FD17E95FC500E2188A /* JRNavigationController.m in Sources */,
 				5223CDBE17E6B2D000788660 /* JRMasterController.m in Sources */,
+				5295A0F417E9481000E2188A /* JRThemeManager.m in Sources */,
 				52854F3A17E8202400919635 /* AFURLConnectionOperation.m in Sources */,
 				5295A0F017E944AA00E2188A /* JRSolidBGColorView.m in Sources */,
+				5295A10017E962A600E2188A /* JRThemedTableViewController.m in Sources */,
 				52854F3B17E8202400919635 /* AFXMLRequestOperation.m in Sources */,
 				528F7D5B17E8BF4800025ADC /* UIImage+RoundedImage.m in Sources */,
 				52E2DA65178CEB1300CF96C5 /* TKShift.m in Sources */,
@@ -707,6 +744,7 @@
 				5295A0E317E8F72F00E2188A /* UINavigationBar+BigBar.m in Sources */,
 				52E2DA67178CEB1300CF96C5 /* TKEmployee.m in Sources */,
 				5223CD7E17E69BBF00788660 /* JRLightPlaceholderTextField.m in Sources */,
+				5295A0F717E9481D00E2188A /* JRTheme.m in Sources */,
 				52E2DA73178CEB3F00CF96C5 /* XPathQuery.m in Sources */,
 				52854F3617E8202400919635 /* AFImageRequestOperation.m in Sources */,
 				52854F3517E8202400919635 /* AFHTTPRequestOperation.m in Sources */,

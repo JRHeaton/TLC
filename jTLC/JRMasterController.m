@@ -11,11 +11,11 @@
 #import "GJB.h"
 #import "JRNavigationBar.h"
 
-#define DEBUG_LOGIN_UI 0
+#define DEBUG_LOGIN_UI 1
 
 @interface JRMasterController ()
 
-- (UINavigationController *)newThemedNavController;
+- (JRNavigationController *)newThemedNavController;
 - (id)prefForKey:(NSString *)key;
 - (void)verifyLogIn;
 
@@ -43,8 +43,12 @@ static JRMasterController *_sharedJRMasterController = nil;
         self.colorTheme = [JRColorTheme darkColorThemeWithAccentColor:[UIColor colorWithRed:0 green:.67 blue:.94 alpha:1]];
 //        self.colorTheme.navigationBarColor = self.colorTheme.accentColor;
         self.colorTheme.secondaryAccentColor = [UIColor colorWithRed:1 green:0.8 blue:0 alpha:1];
-//        self.colorTheme.backgroundColor = [UIColor colorWithRed:0.9 green:0.3 blue:0.5 alpha:1];
-//        self.colorTheme.foregroundColor = [UIColor colorWithRed:1 green:0.4 blue:.6 alpha:1];
+        
+        self.theme = [JRTheme themeWithColorsAndTypes:@{
+                                                        JRThemeColorTypeBackground : self.colorTheme.backgroundColor,
+                                                        JRThemeColorTypeForeground : self.colorTheme.foregroundColor,
+                                                        JRThemeColorTypeAccentPrimary : self.colorTheme.accentColor }];
+        [[JRThemeManager sharedInstance] setCurrentTheme:self.theme];
         
         self.rootNavigationController = [self newThemedNavController];
         logInViewController = [[JRLoginTableViewController alloc] init];
@@ -114,8 +118,8 @@ static JRMasterController *_sharedJRMasterController = nil;
 
 #pragma mark - Private methods
 
-- (UINavigationController *)newThemedNavController {
-    UINavigationController *nav = [[UINavigationController alloc] initWithNavigationBarClass:[JRNavigationBar class] toolbarClass:[UIToolbar class]];
+- (JRNavigationController *)newThemedNavController {
+    JRNavigationController *nav = [[JRNavigationController alloc] initWithNavigationBarClass:[JRNavigationBar class] toolbarClass:[UIToolbar class]];
     nav.navigationBar.barTintColor = self.colorTheme.navigationBarColor;
     nav.navigationBar.titleTextAttributes = @{ NSForegroundColorAttributeName : [UIColor whiteColor] };
     nav.navigationBar.tintColor = self.colorTheme.accentColor;
