@@ -135,6 +135,13 @@
 
 - (void)pushEmployeeDetail {
     employeeDetailController.employee = sessionCandidate.employee;
+    __unsafe_unretained JRLoginTableViewController *_self = self;
+    __unsafe_unretained TKSession *session = sessionCandidate;
+    employeeDetailController.completionBlock = ^{
+        if(_self.completionBlock) {
+            _self.completionBlock(session);
+        }
+    };
     [self.navigationController pushViewController:employeeDetailController animated:YES];
     
     self.showingActivity = NO;

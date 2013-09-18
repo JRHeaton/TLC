@@ -13,5 +13,6 @@
 @interface JREmployeeDetailViewController : UITableViewController
 
 PROP_STRONG TKEmployee *employee;
+PROP_COPY void (^completionBlock)();
 
 @end

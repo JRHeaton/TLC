@@ -11,7 +11,7 @@
 #import "GJB.h"
 #import "JRNavigationBar.h"
 
-#define DEBUG_LOGIN_UI 1
+#define DEBUG_LOGIN_UI 0
 
 @interface JRMasterController ()
 
@@ -70,6 +70,7 @@ static JRMasterController *_sharedJRMasterController = nil;
         self.password = [self prefForKey:@"password"];
 #endif
         
+        scheduleController = [[JRScheduleTableViewController alloc] initWithStyle:UITableViewStyleGrouped];
         JRLog(@"employeeID: %@, pass: %@", self.employeeID, self.password);
         
         if(self.employeeID && self.password) {
@@ -101,7 +102,7 @@ static JRMasterController *_sharedJRMasterController = nil;
         [self.rootNavigationController presentViewController:self.topNavigationController animated:NO completion:nil];
     }
     
-//    [self.rootNavigationController pushViewController:scheduleViewController animated:NO];
+    [self.rootNavigationController pushViewController:scheduleController animated:NO];
 }
 
 - (void)save {

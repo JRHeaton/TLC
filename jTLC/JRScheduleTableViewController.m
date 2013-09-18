@@ -42,6 +42,9 @@
     
     self.tableView.separatorColor = master.colorTheme.tableSeparatorColor;
     self.tableView.backgroundColor = master.colorTheme.backgroundColor;
+    self.tableView.rowHeight = 122;
+    
+    [self.tableView registerNib:[UINib nibWithNibName:@"ShiftCell" bundle:nil] forCellReuseIdentifier:@"Shift"];
 }
 
 - (void)viewDidLoad
@@ -61,21 +64,17 @@
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
-#warning Potentially incomplete method implementation.
-    // Return the number of sections.
-    return 0;
+    return 1;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-#warning Incomplete method implementation.
-    // Return the number of rows in the section.
-    return 0;
+    return 20;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    static NSString *CellIdentifier = @"Cell";
+    static NSString *CellIdentifier = @"Shift";
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier forIndexPath:indexPath];
     
     // Configure the cell...

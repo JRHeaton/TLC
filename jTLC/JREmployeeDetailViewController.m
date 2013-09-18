@@ -54,7 +54,8 @@
 }
 
 - (void)confirmEmployee {
-    
+    if(self.completionBlock)
+        self.completionBlock();
 }
 
 - (void)viewWillAppear:(BOOL)animated {
@@ -115,7 +116,7 @@
         case 1: {
             switch (indexPath.row) {
                 case 0: cell.label.text = @"Last Name"; cell.textField.text = [self.employee.name componentsSeparatedByString:@" "][1]; break;
-                case 1: cell.label.text = @"Employment Status"; cell.textField.text = self.employee.employmentStatus; break;
+                case 1: cell.label.text = @"Employment Type"; cell.textField.text = self.employee.employmentStatus; break;
                 case 2: cell.label.text = @"Store Number"; cell.textField.text = [NSString stringWithFormat:@"%d", self.employee.store.storeNumber]; break;
                 case 3: cell.label.text = @"Department"; cell.textField.text = self.employee.department.name; break;
             }

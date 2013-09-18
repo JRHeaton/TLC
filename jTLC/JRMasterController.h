@@ -11,9 +11,11 @@
 #import "JRLoginTableViewController.h"
 #import "GJB.h"
 #import "JRColorTheme.h"
+#import "JRScheduleTableViewController.h"
 
 @interface JRMasterController : NSObject {
     JRLoginTableViewController  *logInViewController;
+    JRScheduleTableViewController *scheduleController;
 }
 
 + (instancetype)sharedInstance;
