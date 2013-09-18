@@ -21,7 +21,7 @@
                         <nil key="highlightedColor"/>
                     </label>
                     <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="ex: a123456" textAlignment="right" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Zn9-LS-lxk" customClass="JRLightPlaceholderTextField">
-                        <rect key="frame" x="143" y="0.0" width="157" height="64"/>
+                        <rect key="frame" x="187" y="0.0" width="113" height="64"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <color key="textColor" red="0.80000001192092896" green="0.40000000596046448" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                         <fontDescription key="fontDescription" type="system" pointSize="20"/>
@@ -31,9 +31,9 @@
                 <constraints>
                     <constraint firstAttribute="bottom" secondItem="Zn9-LS-lxk" secondAttribute="bottom" id="38d-Jh-amI"/>
                     <constraint firstItem="YHn-mL-4Wy" firstAttribute="leading" secondItem="bVu-I6-Qf4" secondAttribute="leading" constant="20" id="6a0-1L-fM4"/>
-                    <constraint firstItem="Zn9-LS-lxk" firstAttribute="leading" secondItem="YHn-mL-4Wy" secondAttribute="trailing" constant="8" id="IHj-29-UOp"/>
-                    <constraint firstItem="Zn9-LS-lxk" firstAttribute="leading" secondItem="YHn-mL-4Wy" secondAttribute="trailing" constant="8" id="Pjx-Ky-ABg"/>
+                    <constraint firstItem="Zn9-LS-lxk" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="YHn-mL-4Wy" secondAttribute="trailing" constant="2" id="IHj-29-UOp"/>
                     <constraint firstAttribute="bottom" secondItem="YHn-mL-4Wy" secondAttribute="bottom" constant="20" id="WOp-Uw-vr3"/>
+                    <constraint firstItem="Zn9-LS-lxk" firstAttribute="leading" relation="lessThanOrEqual" secondItem="YHn-mL-4Wy" secondAttribute="trailing" constant="6" id="jAu-EZ-7wS"/>
                     <constraint firstItem="YHn-mL-4Wy" firstAttribute="top" secondItem="bVu-I6-Qf4" secondAttribute="top" constant="20" id="jTX-8B-gAR"/>
                     <constraint firstItem="Zn9-LS-lxk" firstAttribute="top" secondItem="bVu-I6-Qf4" secondAttribute="top" id="lPc-dx-fch"/>
                     <constraint firstAttribute="trailing" secondItem="Zn9-LS-lxk" secondAttribute="trailing" constant="20" id="nyr-O3-65S"/>

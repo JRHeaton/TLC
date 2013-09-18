@@ -307,6 +307,7 @@
                     cell.label.text = @"Password";
                     cell.textField.placeholder = @"Required";
                     cell.textField.returnKeyType = UIReturnKeyGo;
+                    cell.textField.clearsOnBeginEditing = YES;
                     cell.textField.secureTextEntry = YES;
                     cell.textField.enablesReturnKeyAutomatically = YES;
                     cell.textField.delegate = self;
