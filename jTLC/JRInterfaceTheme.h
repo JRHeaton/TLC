@@ -11,9 +11,10 @@
 typedef NSString *JRInterfaceColorType;
 typedef NSString *JRInterfaceFontType;
 
-@interface JRInterfaceTheme : NSObject
+@interface JRInterfaceTheme : NSObject <NSCoding>
 
-+ (JRInterfaceTheme *)currentTheme;
++ (instancetype)currentTheme;
++ (instancetype)themeNamed:(NSString *)file;
 + (void)setCurrentTheme:(JRInterfaceTheme *)theme;
 
 - (void)setColor:(UIColor *)color forColorType:(JRInterfaceColorType)type;
@@ -25,8 +26,13 @@ typedef NSString *JRInterfaceFontType;
 - (UIColor *)colorForType:(JRInterfaceColorType)type;
 - (UIFont *)fontForType:(JRInterfaceFontType)type;
 
+@property (nonatomic, readonly, strong) NSMutableDictionary *colors;
+@property (nonatomic, readonly, strong) NSMutableDictionary *fonts;
+
 @property (nonatomic, assign) UIStatusBarStyle statusBarStyle;
 @property (nonatomic, assign) UIKeyboardAppearance keyboardAppearance;
+
+- (BOOL)writeToFile:(NSString *)file;
 
 @end
 

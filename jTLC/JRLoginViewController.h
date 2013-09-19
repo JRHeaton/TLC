@@ -8,8 +8,12 @@
 
 #import <UIKit/UIKit.h>
 
-@interface JRLoginViewController : UITableViewController
+@interface JRLoginViewController : UITableViewController <UITextFieldDelegate>
 
 @property (nonatomic, copy) NSString *employeeID, *password;
+@property (nonatomic, assign) BOOL showingActivity;
+@property (nonatomic, assign) BOOL automaticallyShowKeyboard;
+
+- (void)reset;
 
 @end

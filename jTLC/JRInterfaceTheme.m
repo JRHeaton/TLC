@@ -15,8 +15,12 @@
 NSString *const JRInterfaceThemeChangedNotification = @"JRInterfaceThemeChangedNotification";
 static JRInterfaceTheme *_sharedJRInterfaceTheme = nil;
 
-+ (JRInterfaceTheme *)currentTheme {
++ (instancetype)currentTheme {
     return _sharedJRInterfaceTheme;
+}
+
++ (instancetype)themeNamed:(NSString *)file {
+    return [NSKeyedUnarchiver unarchiveObjectWithFile:[[NSBundle mainBundle] pathForResource:file ofType:@"tlctheme"]];
 }
 
 + (void)setCurrentTheme:(JRInterfaceTheme *)theme {
@@ -28,6 +32,25 @@ static JRInterfaceTheme *_sharedJRInterfaceTheme = nil;
 
 + (void)notifyThemeChanged {
     [[NSNotificationCenter defaultCenter] postNotificationName:JRInterfaceThemeChangedNotification object:_sharedJRInterfaceTheme];
+}
+
+- (instancetype)initWithCoder:(NSCoder *)d {
+    self = [super init];
+    if(self) {
+        self.statusBarStyle = [d decodeIntegerForKey:@"statusBarStyle"];
+        self.keyboardAppearance = [d decodeIntegerForKey:@"keyboardAppearance"];
+        _fonts = [d decodeObjectForKey:@"_fonts"];
+        _colors = [d decodeObjectForKey:@"_colors"];
+    }
+    
+    return self;
+}
+
+- (void)encodeWithCoder:(NSCoder *)c {
+    [c encodeInteger:self.statusBarStyle forKey:@"statusBarStyle"];
+    [c encodeInteger:self.keyboardAppearance forKey:@"keyboardAppearance"];
+    [c encodeObject:_fonts forKey:@"_fonts"];
+    [c encodeObject:_colors forKey:@"_colors"];
 }
 
 - (instancetype)init {
@@ -92,6 +115,10 @@ static JRInterfaceTheme *_sharedJRInterfaceTheme = nil;
 
 - (UIFont *)fontForType:(JRInterfaceFontType)type {
     return _fonts[type];
+}
+
+- (BOOL)writeToFile:(NSString *)file {
+    return [NSKeyedArchiver archiveRootObject:self toFile:file];
 }
 
 @end

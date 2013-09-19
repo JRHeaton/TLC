@@ -61,6 +61,7 @@
     
     UIProgressView *p = ((JRNavigationController *)self.navigationController).navigationBar.progressView;
     
+    NSLog(@"%f", navigationBarProgress);
     dispatch_async(dispatch_get_main_queue(), ^{
         if(navigationBarProgress != 0) {
             p.alpha = 1;

@@ -44,21 +44,23 @@ static JRMasterController *_sharedJRMasterController = nil;
 //        self.colorTheme.navigationBarColor = self.colorTheme.accentColor;
         self.colorTheme.secondaryAccentColor = [UIColor colorWithRed:1 green:0.8 blue:0 alpha:1];
    
-        self.theme = [JRInterfaceTheme new];
+//        self.theme = [JRInterfaceTheme new];
         
-        [self.theme addColorsForTypesFromDictionary:@{
-                                                      JRInterfaceColorTypeBackground : [UIColor colorWithWhite:0.2 alpha:1],
-                                                      JRInterfaceColorTypeForeground : [UIColor colorWithWhite:0.3 alpha:1],
-                                                      JRInterfaceColorTypeAccentPrimary : [UIColor colorWithRed:0 green:.67 blue:.94 alpha:1],
-                                                      JRInterfaceColorTypeTitleText : [UIColor whiteColor],
-                                                      JRInterfaceColorTypeSubtitleText : [UIColor colorWithWhite:0.6 alpha:1],
-                                                      JRInterfaceColorTypeDisabledText : [UIColor colorWithWhite:0.5 alpha:1],
-                                                      JRInterfaceColorTypeTableSeparator : [UIColor colorWithWhite:0.8 alpha:0.2],
-                                                      JRInterfaceColorTypeSwitchThumbTint : [UIColor colorWithWhite:0.2 alpha:1]
-
-                                                      }];
-        self.theme.keyboardAppearance = UIKeyboardAppearanceDark;
-        self.theme.statusBarStyle = UIStatusBarStyleLightContent;
+        self.theme = [JRInterfaceTheme themeNamed:@"JRDarkTheme"];
+        
+//        [self.theme addColorsForTypesFromDictionary:@{
+//                                                      JRInterfaceColorTypeBackground : [UIColor colorWithWhite:0.2 alpha:1],
+//                                                      JRInterfaceColorTypeForeground : [UIColor colorWithWhite:0.3 alpha:1],
+//                                                      JRInterfaceColorTypeAccentPrimary : [UIColor colorWithRed:0 green:.67 blue:.94 alpha:1],
+//                                                      JRInterfaceColorTypeTitleText : [UIColor whiteColor],
+//                                                      JRInterfaceColorTypeSubtitleText : [UIColor colorWithWhite:0.6 alpha:1],
+//                                                      JRInterfaceColorTypeDisabledText : [UIColor colorWithWhite:0.5 alpha:1],
+//                                                      JRInterfaceColorTypeTableSeparator : [UIColor colorWithWhite:0.8 alpha:0.2],
+//                                                      JRInterfaceColorTypeSwitchThumbTint : [UIColor colorWithWhite:0.2 alpha:1]
+//
+//                                                      }];
+//        self.theme.keyboardAppearance = UIKeyboardAppearanceDark;
+//        self.theme.statusBarStyle = UIStatusBarStyleLightContent;
         
         self.lightTheme = [JRInterfaceTheme new];
         [self.lightTheme addColorsForTypesFromDictionary:@{
@@ -73,7 +75,7 @@ static JRMasterController *_sharedJRMasterController = nil;
                                                       }];
         self.lightTheme.keyboardAppearance = UIKeyboardAppearanceLight;
         self.lightTheme.statusBarStyle = UIStatusBarStyleDefault;
-#define LIGHT_UI 1
+#define LIGHT_UI 0
 #if LIGHT_UI == 1
         [JRInterfaceTheme setCurrentTheme:self.lightTheme];
 #else
@@ -81,9 +83,11 @@ static JRMasterController *_sharedJRMasterController = nil;
 
 #endif
         [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(themeUpdated:) name:JRInterfaceThemeChangedNotification object:nil];
+        
     
         self.rootNavigationController = [self newThemedNavController];
         logInViewController = [[JRLoginViewController alloc] init];
+        logInViewController.automaticallyShowKeyboard = YES;
         logInViewController.modalTransitionStyle = UIModalTransitionStyleFlipHorizontal;
         
         __unsafe_unretained JRMasterController *_self = self;

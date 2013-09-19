@@ -9,8 +9,7 @@
 #import "JREmployeeDetailViewController.h"
 #import "GJB.h"
 #import "JRMasterController.h"
-#import "JRTextCell.h"
-#import "
+#import "JRTextFieldCell.h"
 
 @interface JREmployeeDetailViewController () <UITextFieldDelegate>
 
@@ -19,7 +18,7 @@
 @implementation JREmployeeDetailViewController {
     JRMasterController *master;
     
-    JRLightPlaceholderTextField *firstNameField;
+    UITextField *firstNameField;
 }
 
 - (id)initWithStyle:(UITableViewStyle)style
@@ -31,26 +30,29 @@
     return self;
 }
 
-- (void)viewDidLoad
-{
-    [super viewDidLoad];
-}
-
 - (void)loadView {
     [super loadView];
-    
-    master = [JRMasterController sharedInstance];
     
     self.tableView.rowHeight = 64;
     self.tableView.keyboardDismissMode = UIScrollViewKeyboardDismissModeOnDrag;
     
-    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemDone target:self action:@selector(confirmEmployee)];
-
     self.title = @"Employee";
-    [self.tableView registerNib:[UINib nibWithNibName:@"TextCell" bundle:nil] forCellReuseIdentifier:@"Cell"];
+    [self.tableView registerNib:[UINib nibWithNibName:@"JRTextFieldCell" bundle:nil] forCellReuseIdentifier:@"Cell"];
+}
+
+- (void)viewDidLoad {
+    [super viewDidLoad];
+    
+    master = [JRMasterController sharedInstance];
+    
+    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemDone target:self action:@selector(confirmEmployee)];
     
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(applyCurrentInterfaceTheme) name:JRInterfaceThemeChangedNotification object:nil];
     [self applyCurrentInterfaceTheme];
+}
+
+- (UIStatusBarStyle)preferredStatusBarStyle {
+    return [[JRInterfaceTheme currentTheme] statusBarStyle];
 }
 
 - (void)applyCurrentInterfaceTheme {
@@ -58,6 +60,9 @@
     
     self.tableView.separatorColor = [theme colorForType:JRInterfaceColorTypeTableSeparator];
     self.tableView.backgroundColor = [theme colorForType:JRInterfaceColorTypeBackground];
+    
+    [self.tableView performSelectorOnMainThread:@selector(reloadData) withObject:Nil waitUntilDone:NO];
+    [self setNeedsStatusBarAppearanceUpdate];
 }
 
 - (void)confirmEmployee {
@@ -104,15 +109,21 @@
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     static NSString *CellIdentifier = @"Cell";
-    JRTextCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier forIndexPath:indexPath];
+    JRTextFieldCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier forIndexPath:indexPath];
     cell.selectionStyle = UITableViewCellSelectionStyleNone;
+    
+    JRInterfaceTheme *theme = [JRInterfaceTheme currentTheme];
+    
+    cell.backgroundColor = [theme colorForType:JRInterfaceColorTypeForeground];
+    cell.label.textColor = [theme colorForType:JRInterfaceColorTypeTitleText];
+    cell.textField.textColor = cell.textField.tintColor = [theme colorForType:JRInterfaceColorTypeAccentPrimary];
     
     switch (indexPath.section) {
         case 0: {
             cell.label.text = @"First Name";
             cell.textField.text = [self.employee.name componentsSeparatedByString:@" "][0];
-//            cell.textField.clearButtonMode = UITextFieldViewModeUnlessEditing;
             cell.textField.delegate = self;
+            cell.textField.attributedPlaceholder = [[NSAttributedString alloc] initWithString:@"Required" attributes:@{ NSForegroundColorAttributeName : [theme colorForType:JRInterfaceColorTypeDisabledText] }];
             cell.textField.returnKeyType = UIReturnKeyDone;
             cell.textField.autocapitalizationType = UITextAutocapitalizationTypeWords;
             
@@ -131,12 +142,15 @@
         } break;
     }
     
-    cell.textField.textColor = master.colorTheme.disabledTextColor;
+    cell.textField.textColor = [theme colorForType:JRInterfaceColorTypeDisabledText];
     
     return cell;
 }
 
 - (BOOL)textField:(UITextField *)textField shouldChangeCharactersInRange:(NSRange)range replacementString:(NSString *)string {
+    NSString *resolved = [firstNameField.text stringByReplacingCharactersInRange:range withString:string];
+    self.navigationItem.rightBarButtonItem.enabled = resolved.length > 0;
+    
     return [string stringByTrimmingCharactersInSet:[NSCharacterSet characterSetWithCharactersInString:@" "]].length > 0;
 }
 

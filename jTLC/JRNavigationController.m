@@ -37,6 +37,8 @@
 - (void)setNavigationBarProgress:(CGFloat)navigationBarProgress {
     UIProgressView *p = self.navigationBar.progressView;
     
+    NSLog(@"%f", navigationBarProgress);
+
     dispatch_async(dispatch_get_main_queue(), ^{
         if(navigationBarProgress != 0) {
             p.alpha = 1;

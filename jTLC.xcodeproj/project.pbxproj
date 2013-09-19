@@ -53,6 +53,7 @@
 		528F7D5A17E8BF4800025ADC /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = 528F7D5717E8BF4800025ADC /* README.md */; };
 		528F7D5B17E8BF4800025ADC /* UIImage+RoundedImage.m in Sources */ = {isa = PBXBuildFile; fileRef = 528F7D5917E8BF4800025ADC /* UIImage+RoundedImage.m */; };
 		528F7D5E17E8BF6F00025ADC /* JRAboutMeCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 528F7D5D17E8BF6F00025ADC /* JRAboutMeCell.m */; };
+		5290B06A17EA9E7800A2A511 /* JRDarkTheme.tlctheme in Resources */ = {isa = PBXBuildFile; fileRef = 5290B06917EA9E7800A2A511 /* JRDarkTheme.tlctheme */; };
 		5295A0D117E8D5CD00E2188A /* ProperImageCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5295A0D017E8D5CD00E2188A /* ProperImageCell.xib */; };
 		5295A0D417E8D66F00E2188A /* JRProperImageCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 5295A0D317E8D66F00E2188A /* JRProperImageCell.m */; };
 		5295A0D817E8DD1200E2188A /* JRScheduleTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5295A0D717E8DD1200E2188A /* JRScheduleTableViewController.m */; };
@@ -170,6 +171,7 @@
 		528F7D5917E8BF4800025ADC /* UIImage+RoundedImage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+RoundedImage.m"; sourceTree = "<group>"; };
 		528F7D5C17E8BF6F00025ADC /* JRAboutMeCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JRAboutMeCell.h; sourceTree = "<group>"; };
 		528F7D5D17E8BF6F00025ADC /* JRAboutMeCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JRAboutMeCell.m; sourceTree = "<group>"; };
+		5290B06917EA9E7800A2A511 /* JRDarkTheme.tlctheme */ = {isa = PBXFileReference; lastKnownFileType = file.bplist; path = JRDarkTheme.tlctheme; sourceTree = "<group>"; };
 		5295A0D017E8D5CD00E2188A /* ProperImageCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ProperImageCell.xib; sourceTree = "<group>"; };
 		5295A0D217E8D66F00E2188A /* JRProperImageCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JRProperImageCell.h; sourceTree = "<group>"; };
 		5295A0D317E8D66F00E2188A /* JRProperImageCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JRProperImageCell.m; sourceTree = "<group>"; };
@@ -374,6 +376,7 @@
 		523C70FD17EA6030001EFFCE /* UI v2 */ = {
 			isa = PBXGroup;
 			children = (
+				5290B06B17EA9E7D00A2A511 /* Themes */,
 				523C710B17EA73D1001EFFCE /* Custom Views */,
 				523C710517EA6252001EFFCE /* View Controllers */,
 				523C710A17EA630A001EFFCE /* Misc */,
@@ -503,6 +506,14 @@
 				528F7D5917E8BF4800025ADC /* UIImage+RoundedImage.m */,
 			);
 			path = "UIimage-RoundedImage";
+			sourceTree = "<group>";
+		};
+		5290B06B17EA9E7D00A2A511 /* Themes */ = {
+			isa = PBXGroup;
+			children = (
+				5290B06917EA9E7800A2A511 /* JRDarkTheme.tlctheme */,
+			);
+			name = Themes;
 			sourceTree = "<group>";
 		};
 		5295A0D517E8D72E00E2188A /* Cells */ = {
@@ -744,6 +755,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				52E2DA3A178CEADB00CF96C5 /* Images.xcassets in Resources */,
+				5290B06A17EA9E7800A2A511 /* JRDarkTheme.tlctheme in Resources */,
 				52E2DA29178CEADB00CF96C5 /* InfoPlist.strings in Resources */,
 				5295A0D117E8D5CD00E2188A /* ProperImageCell.xib in Resources */,
 				523C710017EA608B001EFFCE /* JRTextFieldCell.xib in Resources */,
