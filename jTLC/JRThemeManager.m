@@ -8,7 +8,7 @@
 
 #import "JRThemeManager.h"
 
-NSString *const JRThemeManagerThemeChangedNotification = @"JRThemeManagerThemeChangedNotification";
+NSString *const JRThemeManagerThemeChangedOrAlteredNotification = @"JRThemeManagerThemeChangedNotification";
 NSString *const JRThemeManagerThemeStatusBarStyleChangedNotification = @"JRThemeManagerThemeStatusBarStyleChangedNotification";
 
 @implementation JRThemeManager {
@@ -41,6 +41,8 @@ static JRThemeManager *sharedJRThemeManager = nil;
             [self sendMessageToView:view toUpdateKeyPath:keyPath toColor:[self.currentTheme colorForType:type]];
         }
     }
+    
+    [[NSNotificationCenter defaultCenter] postNotificationName:JRThemeManagerThemeChangedOrAlteredNotification object:self.currentTheme];
 }
 
 - (void)notifyThemeStatusBarStyleChanged {
@@ -58,7 +60,7 @@ static JRThemeManager *sharedJRThemeManager = nil;
         }
     }
     
-    [[NSNotificationCenter defaultCenter] postNotificationName:JRThemeManagerThemeChangedNotification object:self.currentTheme];
+    [[NSNotificationCenter defaultCenter] postNotificationName:JRThemeManagerThemeChangedOrAlteredNotification object:self.currentTheme];
 }
 
 - (void)sendMessageToView:(UIView *)view toUpdateKeyPath:(NSString *)keyPath toColor:(UIColor *)color {

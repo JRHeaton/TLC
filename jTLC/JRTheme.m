@@ -17,6 +17,8 @@ STR(JRThemeColorTypeAccentSecondary);
 STR(JRThemeColorTypeTitle);
 STR(JRThemeColorTypeSubtitle);
 STR(JRThemeColorTypeBody);
+STR(JRThemeColorTypeDisabledControl);
+STR(JRThemeColorTypeTableSeparator);
 
 STR(JRThemeColorChangedNotification);
 #undef STR

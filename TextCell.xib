@@ -39,7 +39,7 @@
                     <constraint firstAttribute="trailing" secondItem="Zn9-LS-lxk" secondAttribute="trailing" constant="20" id="nyr-O3-65S"/>
                 </constraints>
             </tableViewCellContentView>
-            <color key="backgroundColor" white="0.29999999999999999" alpha="1" colorSpace="calibratedWhite"/>
+            <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
             <connections>
                 <outlet property="label" destination="YHn-mL-4Wy" id="Sca-ih-1QN"/>
                 <outlet property="textField" destination="Zn9-LS-lxk" id="NLF-hI-n8R"/>

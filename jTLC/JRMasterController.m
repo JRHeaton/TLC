@@ -43,23 +43,55 @@ static JRMasterController *_sharedJRMasterController = nil;
         self.colorTheme = [JRColorTheme darkColorThemeWithAccentColor:[UIColor colorWithRed:0 green:.67 blue:.94 alpha:1]];
 //        self.colorTheme.navigationBarColor = self.colorTheme.accentColor;
         self.colorTheme.secondaryAccentColor = [UIColor colorWithRed:1 green:0.8 blue:0 alpha:1];
+   
+        self.theme = [JRInterfaceTheme new];
         
-        self.theme = [JRTheme themeWithColorsAndTypes:@{
-                                                        JRThemeColorTypeBackground : self.colorTheme.backgroundColor,
-                                                        JRThemeColorTypeForeground : self.colorTheme.foregroundColor,
-                                                        JRThemeColorTypeAccentPrimary : self.colorTheme.accentColor }];
-        [[JRThemeManager sharedInstance] setCurrentTheme:self.theme];
+        [self.theme addColorsForTypesFromDictionary:@{
+                                                      JRInterfaceColorTypeBackground : [UIColor colorWithWhite:0.2 alpha:1],
+                                                      JRInterfaceColorTypeForeground : [UIColor colorWithWhite:0.3 alpha:1],
+                                                      JRInterfaceColorTypeAccentPrimary : [UIColor colorWithRed:0 green:.67 blue:.94 alpha:1],
+                                                      JRInterfaceColorTypeTitleText : [UIColor whiteColor],
+                                                      JRInterfaceColorTypeSubtitleText : [UIColor colorWithWhite:0.6 alpha:1],
+                                                      JRInterfaceColorTypeDisabledText : [UIColor colorWithWhite:0.5 alpha:1],
+                                                      JRInterfaceColorTypeTableSeparator : [UIColor colorWithWhite:0.8 alpha:0.2],
+                                                      JRInterfaceColorTypeSwitchThumbTint : [UIColor colorWithWhite:0.2 alpha:1]
+
+                                                      }];
+        self.theme.keyboardAppearance = UIKeyboardAppearanceDark;
+        self.theme.statusBarStyle = UIStatusBarStyleLightContent;
         
+        self.lightTheme = [JRInterfaceTheme new];
+        [self.lightTheme addColorsForTypesFromDictionary:@{
+                                                      JRInterfaceColorTypeBackground : [UIColor colorWithWhite:0.9 alpha:1],
+                                                      JRInterfaceColorTypeForeground : [UIColor colorWithWhite:1 alpha:1],
+                                                      JRInterfaceColorTypeAccentPrimary : [UIColor redColor],
+                                                      JRInterfaceColorTypeTitleText : [UIColor blackColor],
+                                                      JRInterfaceColorTypeSubtitleText : [UIColor colorWithWhite:0.6 alpha:1],
+                                                      JRInterfaceColorTypeDisabledText : [UIColor colorWithWhite:0.5 alpha:1],
+                                                      JRInterfaceColorTypeTableSeparator : [UIColor colorWithWhite:0.4 alpha:0.4],
+                                                      JRInterfaceColorTypeSwitchThumbTint : [UIColor colorWithWhite:.9 alpha:1]
+                                                      }];
+        self.lightTheme.keyboardAppearance = UIKeyboardAppearanceLight;
+        self.lightTheme.statusBarStyle = UIStatusBarStyleDefault;
+#define LIGHT_UI 1
+#if LIGHT_UI == 1
+        [JRInterfaceTheme setCurrentTheme:self.lightTheme];
+#else
+        [JRInterfaceTheme setCurrentTheme:self.theme];
+
+#endif
+        [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(themeUpdated:) name:JRInterfaceThemeChangedNotification object:nil];
+    
         self.rootNavigationController = [self newThemedNavController];
-        logInViewController = [[JRLoginTableViewController alloc] init];
+        logInViewController = [[JRLoginViewController alloc] init];
         logInViewController.modalTransitionStyle = UIModalTransitionStyleFlipHorizontal;
         
         __unsafe_unretained JRMasterController *_self = self;
-        logInViewController.completionBlock = ^(TKSession *session) {
-            _self.session = session;
-            
-            [_self performSelectorOnMainThread:@selector(dismissLogIn) withObject:nil waitUntilDone:NO];
-        };
+//        logInViewController.completionBlock = ^(TKSession *session) {
+//            _self.session = session;
+//            
+//            [_self performSelectorOnMainThread:@selector(dismissLogIn) withObject:nil waitUntilDone:NO];
+//        };
         
 //        scheduleViewController = [[JRScheduleViewController alloc] init];
         
@@ -81,11 +113,19 @@ static JRMasterController *_sharedJRMasterController = nil;
             self.session = [TKSession sessionForEmployee:[TKEmployee employeeWithID:self.employeeID password:self.password]];
         } else {
             self.topNavigationController = [self newThemedNavController];
+            logInViewController.employeeID = @"a773779";
             [self.topNavigationController pushViewController:logInViewController animated:NO];
         }
     }
     
     return _sharedJRMasterController = self;
+}
+
+- (void)themeUpdated:(NSNotification *)notification {
+    self.theme = [JRInterfaceTheme currentTheme];
+    
+    [self applyThemeToNavController:self.topNavigationController];
+    [self applyThemeToNavController:self.rootNavigationController];
 }
 
 - (void)dismissLogIn {
@@ -106,7 +146,7 @@ static JRMasterController *_sharedJRMasterController = nil;
         [self.rootNavigationController presentViewController:self.topNavigationController animated:NO completion:nil];
     }
     
-    [self.rootNavigationController pushViewController:scheduleController animated:NO];
+//    [self.rootNavigationController pushViewController:scheduleController animated:NO];
 }
 
 - (void)save {
@@ -116,18 +156,23 @@ static JRMasterController *_sharedJRMasterController = nil;
 //    [defaults synchronize];
 }
 
+- (void)applyThemeToNavController:(UINavigationController *)nav {
+    JRInterfaceTheme *theme = [JRInterfaceTheme currentTheme];
+    
+    nav.navigationBar.barTintColor = [theme colorForType:JRInterfaceColorTypeForeground];
+    nav.navigationBar.tintColor = [theme colorForType:JRInterfaceColorTypeAccentPrimary];
+    
+    nav.navigationBar.titleTextAttributes = @{ NSForegroundColorAttributeName : [theme colorForType:JRInterfaceColorTypeTitleText] };
+}
+
 #pragma mark - Private methods
 
 - (JRNavigationController *)newThemedNavController {
     JRNavigationController *nav = [[JRNavigationController alloc] initWithNavigationBarClass:[JRNavigationBar class] toolbarClass:[UIToolbar class]];
-    nav.navigationBar.barTintColor = self.colorTheme.navigationBarColor;
-    nav.navigationBar.titleTextAttributes = @{ NSForegroundColorAttributeName : [UIColor whiteColor] };
-    nav.navigationBar.tintColor = self.colorTheme.accentColor;
-    nav.navigationBar.barTintColor = self.colorTheme.navigationBarColor;
-    nav.navigationBar.translucent = NO;
     
-    JRNavigationBar *navBar = (JRNavigationBar *)nav.navigationBar;
-    navBar.progressView.progressTintColor = self.colorTheme.accentColor;
+    nav.navigationBar.translucent = nav.toolbar.translucent = NO;
+    
+    [self applyThemeToNavController:nav];
     
     return nav;
 }

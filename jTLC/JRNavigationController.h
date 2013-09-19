@@ -11,6 +11,7 @@
 
 @interface JRNavigationController : UINavigationController
 
+- (void)setNavigationBarProgress:(CGFloat)navigationBarProgress;
 @property (nonatomic, readonly) JRNavigationBar *navigationBar;
 
 @end

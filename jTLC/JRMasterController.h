@@ -8,15 +8,16 @@
 
 #import <Foundation/Foundation.h>
 #import "TKSession.h"
-#import "JRLoginTableViewController.h"
 #import "GJB.h"
 #import "JRScheduleTableViewController.h"
 #import "JRThemeManager.h"
 #import "JRColorTheme.h"
 #import "JRNavigationController.h"
+#import "JRInterfaceTheme.h"
+#import "JRLoginViewController.h"
 
 @interface JRMasterController : NSObject {
-    JRLoginTableViewController  *logInViewController;
+    JRLoginViewController  *logInViewController;
     JRScheduleTableViewController *scheduleController;
 }
 
@@ -36,6 +37,8 @@ PROP_STRONG JRNavigationController *rootNavigationController;
 PROP_STRONG JRNavigationController *topNavigationController;
 
 PROP_STRONG JRColorTheme *colorTheme;
-PROP_STRONG JRTheme *theme;
+
+PROP_STRONG JRInterfaceTheme *theme;
+PROP_STRONG JRInterfaceTheme *lightTheme;
 
 @end

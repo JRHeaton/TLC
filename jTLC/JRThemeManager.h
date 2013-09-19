@@ -19,12 +19,15 @@
 
 @end
 
-static NSString *const JRThemeManagerKeyPathBackgroundColor = @"backgroundColor";
-static NSString *const JRThemeManagerKeyPathTintColor = @"tintColor";
-static NSString *const JRThemeManagerKeyPathBarTintColor = @"barTintColor";
-static NSString *const JRThemeManagerKeyPathColor = @"color";
-static NSString *const JRThemeManagerKeyPathThumbTintColor = @"thumbTintColor";
-static NSString *const JRThemeManagerKeyPathOnTintColor = @"onTintColor";
+static NSString *const JRThemeManagerKeyPathBackgroundColor     = @"backgroundColor";
+static NSString *const JRThemeManagerKeyPathTintColor           = @"tintColor";
+static NSString *const JRThemeManagerKeyPathBarTintColor        = @"barTintColor";
+static NSString *const JRThemeManagerKeyPathColor               = @"color";
+static NSString *const JRThemeManagerKeyPathThumbTintColor      = @"thumbTintColor";
+static NSString *const JRThemeManagerKeyPathOnTintColor         = @"onTintColor";
+static NSString *const JRThemeManagerKeyPathSeparatorColor      = @"separatorColor";
+static NSString *const JRThemeManagerKeyPathProgressTintColor   = @"progressTintColor";
 
-NSString *const JRThemeManagerThemeChangedNotification;
+
+NSString *const JRThemeManagerThemeChangedOrAlteredNotification;
 NSString *const JRThemeManagerThemeStatusBarStyleChangedNotification;

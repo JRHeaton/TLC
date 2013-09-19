@@ -6,6 +6,7 @@
 //  Copyright (c) 2013 John Heaton. All rights reserved.
 //
 
+
 @implementation UINavigationController (StatusBar)
 
 - (UIViewController *)childViewControllerForStatusBarStyle {

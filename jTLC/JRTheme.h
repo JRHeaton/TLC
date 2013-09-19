@@ -27,3 +27,7 @@ NSString *const JRThemeColorTypeAccentSecondary;
 NSString *const JRThemeColorTypeTitle;
 NSString *const JRThemeColorTypeSubtitle;
 NSString *const JRThemeColorTypeBody;
+NSString *const JRThemeColorTypeDisabledControl;
+
+// Tables
+NSString *const JRThemeColorTypeTableSeparator;

@@ -21,7 +21,7 @@
 {
     [super viewDidLoad];
     
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(_JRThemeChanged:) name:JRThemeManagerThemeChangedNotification object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(_JRThemeChanged:) name:JRThemeManagerThemeChangedOrAlteredNotification object:nil];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(_JRThemeStatusBarStyleChanged:) name:JRThemeManagerThemeStatusBarStyleChangedNotification object:nil];
     
     if([[JRThemeManager sharedInstance] currentTheme])

@@ -75,44 +75,45 @@
     [aboutNavContainer pushViewController:aboutViewController animated:NO];
     
     spinner = [[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleWhite];
-//    spinner.color = master.colorTheme.accentColor;
     spinnerItem = [[UIBarButtonItem alloc] initWithCustomView:spinner];
     rightBarItem = [[UIBarButtonItem alloc] initWithTitle:@"Go" style:UIBarButtonItemStylePlain target:self action:@selector(submit)];
 
     rightBarItem.enabled = NO;
     
-    //    self.tableView.backgroundColor = [UIColor tlcBackgroundColor];
     self.title = @"Log In";
     self.tableView.keyboardDismissMode = UIScrollViewKeyboardDismissModeOnDrag;
-//    self.tableView.backgroundColor = theme.backgroundColor;
     [self.tableView registerNib:[UINib nibWithNibName:@"TextCell" bundle:nil] forCellReuseIdentifier:@"Text"];
     self.tableView.rowHeight = 64;
     self.tableView.separatorColor = theme.tableSeparatorColor;
     
     saveSwitch = [UISwitch new];
     saveSwitch.on = YES;
-    //    saveSwitch.onTintColor = [UIColor orangeColor];
-    
     
     // COLORS
     JRThemeManager *m = [JRThemeManager sharedInstance];
     [m registerView:self.tableView keyPath:JRThemeManagerKeyPathBackgroundColor colorType:JRThemeColorTypeBackground];
-//    [m registerViewOrAppearance:[UISwitch appearanceWhenContainedIn:[JRTextCell class], nil] keyPath:JRThemeManagerKeyPathThumbTintColor colorType:JRThemeColorTypeBackground];
+    [m registerView:self.tableView keyPath:JRThemeManagerKeyPathSeparatorColor colorType:JRThemeColorTypeTableSeparator];
     
-    NSLog(@"%@", ((JRNavigationController *) self.navigationController).navigationBar.progressView);
- 
-    // setup colors
-    [[UISwitch appearanceWhenContainedIn:[JRTextCell class], nil] setOnTintColor:theme.accentColor];
-//    [[UISwitch appearanceWhenContainedIn:[JRTextCell class], nil] setThumbTintColor:theme.backgroundColor];
-    [[UISwitch appearanceWhenContainedIn:[JRTextCell class], nil] setTintColor:theme.accentColor];
-    [[JRTextCell appearanceWhenContainedIn:self.tableView.class, nil] setBackgroundColor:theme.foregroundColor];
-    [[UITextField appearanceWhenContainedIn:[JRTextCell class], nil] setTextColor:theme.accentColor];
-    [[UITextField appearanceWhenContainedIn:[JRTextCell class], nil] setTintColor:theme.accentColor];
-    //    [[UILabel appearanceWhenContainedIn:[JRTextCell class], nil] setTextColor:[UIColor tlcLogInCellLabelColor]];
+    double delayInSeconds = 2.0;
+    dispatch_time_t popTime = dispatch_time(DISPATCH_TIME_NOW, (int64_t)(delayInSeconds * NSEC_PER_SEC));
+    dispatch_after(popTime, dispatch_get_main_queue(), ^(void){
+        
+        JRTheme *t = m.currentTheme;
+        [t setColor:[UIColor colorWithWhite:1 alpha:1] forType:JRThemeColorTypeBackground];
+        [t setColor:[UIColor redColor] forType:JRThemeColorTypeForeground];
+        [t setColor:[UIColor whiteColor] forType:JRThemeColorTypeAccentPrimary];
+    });
 }
 
-- (void)themeChanged:(JRTheme *)theme {
+- (void)themeChanged:(JRTheme *)t {
+//    [[UISwitch appearanceWhenContainedIn:[JRTextCell class], nil] setOnTintColor:[t colorForType:JRThemeColorTypeAccentPrimary]];
+//    [[UISwitch appearanceWhenContainedIn:[JRTextCell class], nil] setTintColor:[t colorForType:JRThemeColorTypeAccentPrimary]];
+//    [[UISwitch appearanceWhenContainedIn:[JRTextCell class], nil] setThumbTintColor:[t colorForType:JRThemeColorTypeBackground]];
+//    [[JRTextCell appearanceWhenContainedIn:self.tableView.class, nil] setBackgroundColor:[t colorForType:JRThemeColorTypeForeground]];
+//    [[UITextField appearanceWhenContainedIn:[JRTextCell class], nil] setTextColor:[t colorForType:JRThemeColorTypeAccentPrimary]];
+//    [[UITextField appearanceWhenContainedIn:[JRTextCell class], nil] setTintColor:[t colorForType:JRThemeColorTypeAccentPrimary]];
     
+//    [self.tableView reloadData];
 }
 
 - (void)viewDidLoad
@@ -307,7 +308,7 @@
     switch (indexPath.section) {
         case 0: {
             JRTextCell *cell = [self.tableView dequeueReusableCellWithIdentifier:@"Text" forIndexPath:indexPath];
-            cell.backgroundColor = theme.foregroundColor;
+            cell.backgroundColor = [[JRThemeManager sharedInstance].currentTheme colorForType:JRThemeColorTypeForeground];
             cell.selectionStyle = UITableViewCellSelectionStyleNone;
 
             switch (indexPath.row) {

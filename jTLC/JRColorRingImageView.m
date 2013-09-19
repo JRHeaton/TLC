@@ -22,7 +22,6 @@
 
 - (void)drawRect:(CGRect)rect
 {
-    NSLog(@"drawing");
     UIBezierPath *path = [UIBezierPath bezierPathWithOvalInRect:rect];
     [[JRMasterController sharedInstance].colorTheme.accentColor setFill];
     [path fill];

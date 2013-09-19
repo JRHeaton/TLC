@@ -10,6 +10,7 @@
 #import "GJB.h"
 #import "JRMasterController.h"
 #import "JRTextCell.h"
+#import "
 
 @interface JREmployeeDetailViewController () <UITextFieldDelegate>
 
@@ -41,16 +42,22 @@
     master = [JRMasterController sharedInstance];
     
     self.tableView.rowHeight = 64;
-    self.tableView.separatorColor = master.colorTheme.tableSeparatorColor;
-    self.tableView.backgroundColor = master.colorTheme.backgroundColor;
     self.tableView.keyboardDismissMode = UIScrollViewKeyboardDismissModeOnDrag;
     
     self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemDone target:self action:@selector(confirmEmployee)];
-//    self.navigationItem.rightBarButtonItem.tintColor = [UIColor redColor];
-    
+
+    self.title = @"Employee";
     [self.tableView registerNib:[UINib nibWithNibName:@"TextCell" bundle:nil] forCellReuseIdentifier:@"Cell"];
     
-    self.title = @"Employee";
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(applyCurrentInterfaceTheme) name:JRInterfaceThemeChangedNotification object:nil];
+    [self applyCurrentInterfaceTheme];
+}
+
+- (void)applyCurrentInterfaceTheme {
+    JRInterfaceTheme *theme = [JRInterfaceTheme currentTheme];
+    
+    self.tableView.separatorColor = [theme colorForType:JRInterfaceColorTypeTableSeparator];
+    self.tableView.backgroundColor = [theme colorForType:JRInterfaceColorTypeBackground];
 }
 
 - (void)confirmEmployee {
