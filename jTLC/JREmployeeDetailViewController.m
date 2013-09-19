@@ -61,7 +61,7 @@
     self.tableView.separatorColor = [theme colorForType:JRInterfaceColorTypeTableSeparator];
     self.tableView.backgroundColor = [theme colorForType:JRInterfaceColorTypeBackground];
     
-    [self.tableView performSelectorOnMainThread:@selector(reloadData) withObject:Nil waitUntilDone:NO];
+    [self.tableView performSelectorOnMainThread:@selector(reloadData) withObject:nil waitUntilDone:NO];
     [self setNeedsStatusBarAppearanceUpdate];
 }
 
@@ -95,11 +95,11 @@
 }
 
 - (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section {
-    return !section ? @"Editable Information" : nil;
+    return !section ? @"SET YOUR NAME" : nil;
 }
 
 - (NSString *)tableView:(UITableView *)tableView titleForFooterInSection:(NSInteger)section {
-    return section == 0 ? @"If your first name used by TLC is not the name you go by, you can change it here, and the app will remember." : nil;
+    return section == 0 ? @"If your first name as not it appears on MyTLC, you can change it here." : nil;
 }
 
 - (void)tableView:(UITableView *)tableView willDisplayFooterView:(UITableViewHeaderFooterView *)view forSection:(NSInteger)section {
@@ -125,6 +125,7 @@
             cell.textField.delegate = self;
             cell.textField.attributedPlaceholder = [[NSAttributedString alloc] initWithString:@"Required" attributes:@{ NSForegroundColorAttributeName : [theme colorForType:JRInterfaceColorTypeDisabledText] }];
             cell.textField.returnKeyType = UIReturnKeyDone;
+            cell.textField.keyboardAppearance = [theme keyboardAppearance];
             cell.textField.autocapitalizationType = UITextAutocapitalizationTypeWords;
             
             firstNameField = cell.textField;

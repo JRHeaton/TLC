@@ -11,7 +11,7 @@
 #import "GJB.h"
 #import "JRNavigationBar.h"
 
-#define DEBUG_LOGIN_UI 1
+#define DEBUG_LOGIN_UI 0
 
 @interface JRMasterController ()
 
@@ -40,12 +40,6 @@ static JRMasterController *_sharedJRMasterController = nil;
         return _sharedJRMasterController;
     
     if(self = [super init]) {
-        self.colorTheme = [JRColorTheme darkColorThemeWithAccentColor:[UIColor colorWithRed:0 green:.67 blue:.94 alpha:1]];
-//        self.colorTheme.navigationBarColor = self.colorTheme.accentColor;
-        self.colorTheme.secondaryAccentColor = [UIColor colorWithRed:1 green:0.8 blue:0 alpha:1];
-   
-//        self.theme = [JRInterfaceTheme new];
-        
         self.theme = [JRInterfaceTheme themeNamed:@"JRDarkTheme"];
         
 //        [self.theme addColorsForTypesFromDictionary:@{
@@ -84,6 +78,8 @@ static JRMasterController *_sharedJRMasterController = nil;
 #endif
         [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(themeUpdated:) name:JRInterfaceThemeChangedNotification object:nil];
         
+        
+        scheduleViewController = [[JRScheduleViewController alloc] initWithStyle:UITableViewStyleGrouped];
     
         self.rootNavigationController = [self newThemedNavController];
         logInViewController = [[JRLoginViewController alloc] init];
@@ -110,14 +106,12 @@ static JRMasterController *_sharedJRMasterController = nil;
         self.password = [self prefForKey:@"password"];
 #endif
         
-        scheduleController = [[JRScheduleTableViewController alloc] initWithStyle:UITableViewStyleGrouped];
         JRLog(@"employeeID: %@, pass: %@", self.employeeID, self.password);
         
         if(self.employeeID && self.password) {
             self.session = [TKSession sessionForEmployee:[TKEmployee employeeWithID:self.employeeID password:self.password]];
         } else {
             self.topNavigationController = [self newThemedNavController];
-            logInViewController.employeeID = @"a773779";
             [self.topNavigationController pushViewController:logInViewController animated:NO];
         }
     }
@@ -150,7 +144,7 @@ static JRMasterController *_sharedJRMasterController = nil;
         [self.rootNavigationController presentViewController:self.topNavigationController animated:NO completion:nil];
     }
     
-//    [self.rootNavigationController pushViewController:scheduleController animated:NO];
+    [self.rootNavigationController pushViewController:scheduleViewController animated:NO];
 }
 
 - (void)save {

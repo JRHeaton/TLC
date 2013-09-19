@@ -41,6 +41,9 @@
     
     // Detail view controller
     JREmployeeDetailViewController *employeeDetailController;
+    
+    // Flags
+    BOOL            hasEditedYet;
 }
 
 - (id)init {
@@ -51,6 +54,7 @@
     [super loadView];
     
     self.title = @"Log In";
+    hasEditedYet = NO;
     
     self.tableView.rowHeight = 65;
     self.tableView.keyboardDismissMode = UIScrollViewKeyboardDismissModeOnDrag;
@@ -70,6 +74,7 @@
     self.password = nil;
     sessionCandidate = nil;
     employeeIDField.text = nil;
+    hasEditedYet = NO;
     passwordField.text = nil;
     flaggedKeyboardField = nil;
     self.automaticallyShowKeyboard = NO;
@@ -156,35 +161,40 @@
 - (void)submit {
     [self setShowingActivity:YES];
     
-    sessionCandidate = [TKSession sessionForEmployee:[TKEmployee employeeWithID:employeeIDField.text password:passwordField.text]];
-    [self.navigationController setNavigationBarProgress:0.2];
-    [sessionCandidate logIn:^(BOOL success, NSString *errorString) {
-        NSLog(@"%d succ log", success);
-        if(!success) {
-            [self.navigationController setNavigationBarProgress:0];
-            [self performSelectorOnMainThread:@selector(reflectLogInErrorInUI) withObject:nil waitUntilDone:NO];
-        }
-        else {
-            [self.navigationController setNavigationBarProgress:0.5];
-            
-            [sessionCandidate fetchEmployeeInfo:^(BOOL success) {
-                if(!success) {
-                    [self.navigationController setNavigationBarProgress:0];
-                    [sessionCandidate logOut];
-                    [self performSelectorOnMainThread:@selector(reflectLogInErrorInUI) withObject:nil waitUntilDone:NO];
-                } else {
-                    [self.navigationController setNavigationBarProgress:1];
-                    [self performSelectorOnMainThread:@selector(pushEmployeeDetail) withObject:nil waitUntilDone:NO];
-                }
-            }];
-            
-        }
-    }];
+    if(hasEditedYet) {
+        sessionCandidate = [TKSession sessionForEmployee:[TKEmployee employeeWithID:employeeIDField.text password:passwordField.text]];
+        [self.navigationController setNavigationBarProgress:0.2];
+        [sessionCandidate logIn:^(BOOL success, NSString *errorString) {
+            NSLog(@"%d succ log", success);
+            if(!success) {
+                [self.navigationController setNavigationBarProgress:0];
+                [self performSelectorOnMainThread:@selector(reflectLogInErrorInUI) withObject:nil waitUntilDone:NO];
+            }
+            else {
+                [self.navigationController setNavigationBarProgress:0.5];
+                
+                [sessionCandidate fetchEmployeeInfo:^(BOOL success) {
+                    if(!success) {
+                        [self.navigationController setNavigationBarProgress:0];
+                        [sessionCandidate logOut];
+                        [self performSelectorOnMainThread:@selector(reflectLogInErrorInUI) withObject:nil waitUntilDone:NO];
+                    } else {
+                        [self.navigationController setNavigationBarProgress:1];
+                        [self performSelectorOnMainThread:@selector(pushEmployeeDetail) withObject:nil waitUntilDone:NO];
+                    }
+                }];
+                
+            }
+        }];
+    } else {
+        [self pushEmployeeDetail];
+    }
 }
 
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
     
+    hasEditedYet = NO;
     self.navigationItem.rightBarButtonItem.enabled = (employeeIDField.text.length > 0 && passwordField.text.length > 0);
 }
 
@@ -319,6 +329,13 @@
     }
     
     return nil;
+}
+
+- (BOOL)textFieldShouldBeginEditing:(UITextField *)textField {
+    if(!passwordField.text.length || textField == employeeIDField)
+        hasEditedYet = YES;
+    
+    return YES;
 }
 
 - (BOOL)textField:(UITextField *)textField shouldChangeCharactersInRange:(NSRange)range replacementString:(NSString *)string {

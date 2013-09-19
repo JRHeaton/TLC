@@ -10,9 +10,7 @@
 #import "GJB.h"
 #import "TLCKit.h"
 
-#import "JRThemedTableViewController.h"
-
-@interface JRLoginTableViewController : JRThemedTableViewController <UITextFieldDelegate> {
+@interface JRLoginTableViewController : UITableViewController <UITextFieldDelegate> {
     NSString *submitTitle;
 }
 

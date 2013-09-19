@@ -7,7 +7,6 @@
 //
 
 #import "JRAppDelegate.h"
-#import "JRThemeManager.h"
 
 @implementation JRAppDelegate
 
